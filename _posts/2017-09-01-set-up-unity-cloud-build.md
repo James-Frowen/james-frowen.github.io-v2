@@ -64,8 +64,5 @@ once code for a new build is ready,
 
 # toubleshoot
 
-### no lighting (dim lighting)
-fix lighting
-
 ### no blender model
 use fbx
