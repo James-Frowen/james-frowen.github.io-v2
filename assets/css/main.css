@@ -23,3 +23,7 @@ h1, h2 {
 h3 {
     color: #888888;
 }
+
+ul {
+    padding-left: 24px;
+}
