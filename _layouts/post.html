@@ -11,6 +11,7 @@
         <section id="main_content">
           <h2><a href="/projects/{{ page.project | downcase | replace: ' ', '-' }}">{{ page.project }}</h2></a>
           <h2>{{ page.title}}</h2>
+          <p>{{ page.description }}</p>
           {{ content }}
         </section>
 
