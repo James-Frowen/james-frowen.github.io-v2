@@ -14,10 +14,17 @@ layout: default
 
 
 <h1>Recent Posts</h1>
-<ul class="posts">
 {% for post in site.posts %}
 	{% unless post.draft %}
-		<li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+	<div class="post">
+		<h1><a href="{{ post.url }}" title="{{ post.title }}">{{ post.project }}{{ post.title }}</a></h1>
+		<h2>{{ post.date | date_to_string }}</h2>
+		<p>
+			{{ post.description }}
+		</p>
+		{% unless post.image == null %}
+			<img src="/assets/images/{{ post.image }}" alt="image about {{ post.title }}">
+		{% endunless %}
+	</div>
 	{% endunless %}
 {% endfor %}
-</ul>
