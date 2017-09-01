@@ -1,7 +1,10 @@
 body {
     color: #444444;
 }
-
+header h1 {
+    text-decoration: inherit;
+    text-underline-position: inherit;
+}
 h1 {
     text-decoration: underline;
     text-underline-position: under;
