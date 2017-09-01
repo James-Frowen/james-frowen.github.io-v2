@@ -10,6 +10,22 @@
 
         <section id="main_content">
           <h1><a href="/projects/{{ page.project | downcase | replace: ' ', '-' }}">{{ page.project }}</h1></a>
+          {% if page.show_unity_download %}
+          <strong>Download:</strong> 
+
+          {% unless page.download_windows == null %}
+            <a href="{{ page.download_windows }}">
+            <img src="/assets/icons/windows.svg" class="svg" alt="">
+              Windows</a>
+          {% endunless %}
+         
+          {% unless page.download_mac == null %}
+            <a href="{{ page.download_mac }}">
+            <img src="/assets/icons/apple.svg" class="svg" alt="">
+              Mac</a>
+          {% endunless %}
+          
+          {% endif %}
           <h2>{{ page.title}}</h2>
           <p>{{ page.description }}</p>
           {{ content }}
