@@ -32,9 +32,13 @@
         <h2>{{ page.subtitle }}</h2>
         <p><strong>Status:</strong> {{ page.status | default: new }}</p>
         {% if page.download %}
-        <p><strong>download:</strong> 
-          <a href="{{ page.download_windows }}">Windows</a>
+        <p><strong>Download:</strong> 
+          {% unless page.download_windows == null %}
+            <a href="{{ page.download_windows }}">Windows</a>
+          {% endunless %}
+          {% unless page.download_windows == null %}
           <a href="{{ page.download_mac }}">Mac</a>
+          {% endunless %}
         </p>
         {% endif %}
         {{ content }}
