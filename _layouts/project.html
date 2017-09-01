@@ -19,10 +19,12 @@
             <strong>Download:</strong> 
 
             {% unless page.download_windows == null %}
+              <img src="/assets/icons/windows.svg" alt="">
               <a href="{{ page.download_windows }}">Windows</a>
             {% endunless %}
            
             {% unless page.download_mac == null %}
+              <img src="/assets/icons/apple.svg" alt="">
               <a href="{{ page.download_mac }}">Mac</a>
             {% endunless %}
             
