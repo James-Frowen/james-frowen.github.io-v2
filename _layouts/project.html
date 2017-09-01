@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  {% include head %}
+  {% include head.html %}
 
   <body>
     <div id="container">
       <div class="inner">
 
-        {% include header %}
+        {% include header.html %}
 
         <h1>{{ page.title }}</h1>
           <h2>{{ page.subtitle }}</h2>
@@ -24,11 +24,11 @@
           {{ content }}
         </section>
 
-        {% include footer %}
+        {% include footer.html %}
 
       </div>
     </div>
 
-    {% include google_analytics %}
+    {% include google_analytics.html %}
   </body>
 </html>
