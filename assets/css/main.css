@@ -4,11 +4,11 @@ body {
 header h1 {
     text-decoration: inherit;
     text-underline-position: inherit;
-    padding: inherit;
+    padding: 0;
 }
 
 header h2 {
-    padding: inherit;
+    padding: 0;
 }
 
 h1 {
