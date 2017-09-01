@@ -20,6 +20,10 @@ h1, h2 {
     padding: 24px 0 12px 0;
 }
 
+h2>a {
+    color: deepskyblue;
+}
+
 h3 {
     color: #888888;
 }
