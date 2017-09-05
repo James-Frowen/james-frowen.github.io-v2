@@ -46,3 +46,20 @@ ul {
 .svg {
     height:1rem
 }
+
+.image-grid-2-1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.image-1-1 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.image-2-1 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
