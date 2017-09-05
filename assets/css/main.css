@@ -66,3 +66,9 @@ li>ul {
     grid-row: 1;
 }
 
+@media (min-width: 620px) { 
+    .image-2-1 {
+        grid-column: 1;
+        grid-row: 2;
+    }
+}
