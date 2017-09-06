@@ -34,6 +34,24 @@
           </p>
 
           {{ content }}
+
+          <h2>Recent Posts</h2>
+          {% for post in site.posts limit:5 %}
+              {% unless post.draft %}
+                {% post.project == page.title %}
+                  <div class="post">
+                    <h2><a href="{{ post.url }}" title="{{ post.title }}">{{ post.project }} - {{ post.title }}</a></h2>
+                    <h3>{{ post.date | date_to_string }}</h3>
+                    <p>
+                      {{ post.description }}
+                    </p>
+                    {% unless post.image == null %}
+                      <img src="/assets/images/{{ post.image }}" alt="image about {{ post.title }}">
+                    {% endunless %}
+                  </div>
+                {% endif }
+            {% endunless %}
+          {% endfor %}
           
         </section>
 
