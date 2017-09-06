@@ -2,3 +2,5 @@ theme: jekyll-theme-tactile
 title: James Frowen
 description: A collection of game development stuff.
 google_analytics: UA-105767611-1
+plugins:
+  - jekyll-redirect-from
