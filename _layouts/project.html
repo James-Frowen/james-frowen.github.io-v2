@@ -33,8 +33,11 @@
             {% endif %}
           </p>
 
-          {{ content }}
+          <div class="project-content">
+            {{ content }}
+          </div>
 
+          <br>
           <h2>Recent Posts</h2>
           {% for post in site.posts limit:5 %}
             {% if post.project == page.title %}

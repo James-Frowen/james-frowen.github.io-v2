@@ -90,3 +90,7 @@ li>ul {
 .PageNavigation .next {
   text-align: right;
 }
+
+.project-content {
+    margin: 0px 16px
+}
