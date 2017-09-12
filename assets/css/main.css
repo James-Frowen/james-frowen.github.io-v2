@@ -95,9 +95,23 @@ li>ul {
     margin-bottom: 32px;
 }
 
+.socail-partent {
+    position: relative;
+}
 .socail-container {
+    position: absolute;
+    right: 0px;
+    top: -24px;
     display: flex;
 }
 .socail-container>div {
     margin: auto 4px;
+}
+
+
+@media (min-width: 620px) { 
+    .socail-container {
+        position: relative;
+        display: flex;
+    }
 }
