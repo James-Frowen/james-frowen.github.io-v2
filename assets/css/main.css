@@ -112,6 +112,7 @@ li>ul {
 @media (min-width: 620px) { 
     .socail-container {
         position: relative;
-        display: flex;
+        right: auto;
+        top: auto;
     }
 }
