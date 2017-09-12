@@ -41,6 +41,10 @@ li>ul {
     margin-bottom: 0px;
 }
 
+ul li {
+    padding-left: 10px;
+}
+
 .rounded-image {
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px black;
