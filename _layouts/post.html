@@ -56,6 +56,8 @@
       </div>
     </div>
 
-    {% include google_analytics.html %}
+    {% unless page.draft %}
+      {% include google_analytics.html %}
+    {% endunless %}
   </body>
 </html>
