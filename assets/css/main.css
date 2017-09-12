@@ -95,8 +95,6 @@ li>ul {
     margin-bottom: 32px;
 }
 
-.center-children {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.y-align {
+    vertical-align: middle;
 }
