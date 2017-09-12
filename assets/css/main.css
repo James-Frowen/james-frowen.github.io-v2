@@ -94,3 +94,9 @@ li>ul {
 .project-content {
     margin-bottom: 32px;
 }
+
+.center-children {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
