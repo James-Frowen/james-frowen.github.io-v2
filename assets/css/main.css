@@ -95,6 +95,9 @@ li>ul {
     margin-bottom: 32px;
 }
 
-.y-align {
-    vertical-align: middle;
+.socail-container {
+    display: flex;
+}
+.socail-container>div {
+    margin: auto 4px;
 }
