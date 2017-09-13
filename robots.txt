@@ -2,5 +2,4 @@
 # Do Not delete this file.
 
 User-agent: *
-Disallow: /assets/icons/apple.svg
-Disallow: /assets/icons/windows.svg
+Disallow: /assets/icons/*
