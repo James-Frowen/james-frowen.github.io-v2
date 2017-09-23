@@ -8,4 +8,4 @@ date: 2017-09-24
 published: true
 ---
 
-<iframe width="100%" src="https://www.youtube.com/embed/VNymPQbXkLs" frameborder="0" allowfullscreen></iframe>
+<iframe width="610" height="349" src="https://www.youtube.com/embed/VNymPQbXkLs" frameborder="0" allowfullscreen></iframe>
