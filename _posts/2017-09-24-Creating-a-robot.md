@@ -2,7 +2,7 @@
 layout: post
 title: Creating a Robot
 description: Creating a 3d model of a robot in blender for Quantum Robot
-image: 
+image: /assets/images/blenderRobot-1.JPG
 project: Quantum Robot
 date: 2017-09-24
 published: true
