@@ -1,0 +1,11 @@
+---
+layout: post
+title: Creating a Robot
+description: Creating a 3d model of a robot in blender for Quantum Robot
+image: /assets/images/v0-0-2-warehouse-1.JPG
+project: Quantum Robot
+date: 2017-09-24
+published: true
+---
+
+<iframe width="100%" src="https://www.youtube.com/embed/VNymPQbXkLs" frameborder="0" allowfullscreen></iframe>
