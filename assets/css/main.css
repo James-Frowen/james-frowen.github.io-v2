@@ -126,8 +126,8 @@ ul li {
 }
 .share-container {
     display: flex;
-    height: 100px;
+    height: 40px;
 }
 .share-container>div {
-    margin: auto 8px;
+    padding: auto 8px;
 }
