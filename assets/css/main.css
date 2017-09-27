@@ -109,7 +109,7 @@ ul li {
     display: flex;
 }
 .social-container>div {
-    margin: auto 4px;
+    margin: auto 8px;
 }
 
 
@@ -129,5 +129,5 @@ ul li {
     height: 100px;
 }
 .social-container>div {
-    margin: auto;
+    margin: auto 8px;
 }
