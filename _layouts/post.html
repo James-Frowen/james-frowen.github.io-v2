@@ -42,8 +42,11 @@
           {% if page.draft %}
           <h3>This post is a draft and may be altered at any time.</h3>
           {% endif %}
-          
+
+          <br/>
           {% include twitter_share.html %}
+          {% include facebook_share.html %}
+          <br/>
 
           <h2>{{ page.title}}</h2>
           <p>{{ page.description }}</p>
