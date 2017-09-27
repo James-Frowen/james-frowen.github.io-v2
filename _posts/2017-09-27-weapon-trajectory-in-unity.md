@@ -12,9 +12,12 @@ My goal was to get the trajectory of a grenade to start from the weapon and land
 
 <div class="image-grid-2-1">
     <div class="image-1-1">
-      To display the trajectory you can used a simple <a href="https://docs.unity3d.com/Manual/class-LineRenderer.html">LineRenderer</a>, and to make the projectile move you can apply motion to a <a href="https://docs.unity3d.com/Manual/class-Rigidbody.html">Rigidbody</a>.
-  
-      I decided that the start of the trajectory path was more important so i made the thickness of the LineRenderer decrease over its path. By doing this i dont have to worry about if the projectile is going to land below the height it started at because the line would be near unseeable by that point anyway. To change the thickness you can use the Width curve in the inspector.
+      <p>
+        To display the trajectory you can used a simple <a href="https://docs.unity3d.com/Manual/class-LineRenderer.html">LineRenderer</a>, and to make the projectile move you can apply motion to a <a href="https://docs.unity3d.com/Manual/class-Rigidbody.html">Rigidbody</a>.
+      </p>
+      <p>
+        I decided that the start of the trajectory path was more important so i made the thickness of the LineRenderer decrease over its path. By doing this i dont have to worry about if the projectile is going to land below the height it started at because the line would be near unseeable by that point anyway. To change the thickness you can use the Width curve in the inspector.
+      </p>
     </div>
     <div class="image-2-1">
       <img src="/assets/images/weapon-trajectory-01.JPG" class="img-responsive rounded-image" width="100%" alt="Line Renderer">
