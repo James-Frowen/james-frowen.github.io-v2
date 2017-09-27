@@ -91,10 +91,6 @@ void RenderArc(float speed, float angle, int numberOfLines)
 
 A few notes about the position as we convert `x` and `y` to a vector. `y` should be the global up. `x` should be the local forward, this is so that the trajectory is always facing the same direction as our player. Lastly we need to make sure that the trajectory moves with the player.
 
-```csharp
-position[i] = (y * Vector3.up) + (x * transform.forward) + transform.position;
-```
-
 We should not have a working trajectory from the transform that has this script attached. Now in order to make this work with an offset only requires minor changes.
 
 First we should set up our objects in unity so that this will be easy to do. The `LineRenderer` and script are put on a child of the weapon and the weapon is a child of the player's head. In my setup the player's head controls rotation up and down, while the player(root) object controls rotation left and right.
@@ -112,7 +108,7 @@ In order to calculate the direction you will need the player's transform, the we
 
 *** diagram of vectors *** 
 ```csharp
-public Vector3 CalculateTrajectoryDirection()
+Vector3 CalculateTrajectoryDirection()
 {
     Vector3 direction = 
         (player.transform.forward * this.TrajectoryDistance
