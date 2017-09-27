@@ -6,8 +6,6 @@ published: true
 draft: true
 ---
 
-blog post about weapon trajectory
-
 Firstly i want to start off by saying this post will include a lot of maths and code.
 
 My goal was to get the trajectory of a grenade to start from the weapon and land at a point in front of the player's head/camera. The problem with this is that the weapon is offset in all 3 dimensions so things get complicated fast. Another minor problem was getting the trajectory path shown to the player line up with the projectile once it was launched.
