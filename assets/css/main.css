@@ -125,9 +125,7 @@ ul li {
 .share-partent {
 }
 .share-container {
-    display: flex;
-    height: 40px;
 }
 .share-container>div {
-    padding: auto 8px;
+    margin: auto;
 }
