@@ -89,6 +89,9 @@ void RenderArc(float speed, float angle, int numberOfLines)
         float x = x * trajectoryDistance;
 
         float y = x * Mathf.Tan(radianAngle) - ((gravity * x * x) / (2 * speed * speed * Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle)));
+
+         
+        position[i] = (y * Vector3.up) + (x * transform.forward) + transform.position;
     }
 
     lineRenderer.SetPositions(positions);
@@ -101,3 +104,15 @@ float TrajectoryDistance(float speed, float angle, float gravity, float initialH
     return (xSpeed / gravity) * (ySpeed + Mathf.Sqrt(ySpeed * ySpeed + 2f * gravity * initialHeight));
 }
 ```
+
+
+A few notes about the position as we convert `x` and `y` to a vector. `y` should be the global up. `x` should be the local forward, this is so that the trajectory is always facing the same direction as our player. Lastly we need to make sure that the trajectory moves with the player.
+
+```csharp
+position[i] = (y * Vector3.up) + (x * transform.forward) + transform.position;
+```
+
+We should not have a working trajectory from the transform that has this script attached. Now in order to make this work with an offset only requires minor changes.
+
+First we should set up our objects in unity so that this will be easy to do. 
+*** Image of player set up ***
