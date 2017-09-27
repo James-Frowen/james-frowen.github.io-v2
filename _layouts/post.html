@@ -43,13 +43,14 @@
           <h3>This post is a draft and may be altered at any time.</h3>
           {% endif %}
 
-
+          {% unless page.draft %}
           <div class="share-partent">
             <div class="share-container">
             <div>{% include twitter_share.html %}</div>
             <div>{% include facebook_share.html %}</div>
             </div>  
           </div>
+          {% endunless %}
 
           <h2>{{ page.title}}</h2>
           <p>{{ page.description }}</p>
