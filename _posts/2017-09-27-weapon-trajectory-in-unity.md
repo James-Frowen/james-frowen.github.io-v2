@@ -12,9 +12,15 @@ My goal was to get the trajectory of a grenade to start from the weapon and land
 
 To display the trajectory you can used a simple `LineRenderer`, and to make the projectile move you can apply motion to a `Rigidbody`.
 
-I decided that the start of the trajectory path was more important so i made the thickness of the `LineRenderer` decrease over its path. By doing this i dont have to worry about if the projectile is going to land below the height it started at because the line would be near unseeable by that point anyway. To change the thickness you can use the Width curve in the inspector.
+<div class="image-grid-2-1">
+  <div class="image-1-1">
+    I decided that the start of the trajectory path was more important so i made the thickness of the `LineRenderer` decrease over its path. By doing this i dont have to worry about if the projectile is going to land below the height it started at because the line would be near unseeable by that point anyway. To change the thickness you can use the Width curve in the inspector.
+  </div>
+  <div class="image-2-1">
+    <img src="/assets/images/weapon-trajectory-01.JPG" class="img-responsive rounded-image" width="100%" alt="Line Renderer">
+  </div>
+</div>
 
-<img src="/assets/images/weapon-trajectory-01.JPG" class="img-responsive rounded-image" width="100%" alt="Line Renderer">
 
 To get the trajectory started you can simply think of it in 2 dimensions, height, and distance. Starting with values for speed and angle of launch I could can use the [trajectory formulas](https://en.wikipedia.org/wiki/Trajectory).
 
