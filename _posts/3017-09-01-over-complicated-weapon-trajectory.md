@@ -19,13 +19,8 @@ I decided that the start of the trajectory path was more important so i made the
 The path the takes follows this equation of motion:
 
 ```
-y = x*tan(a) - (x^2 * g) / (2 * s^2 + cos^2(a))
+y = x*tan(a) - (x^2 * gravity) / (2 * speed^2 + cos^2(launch angle))
 ```
-`y` = height
-`x` = distance
-`s^2` = speed squared
-`a` = launch angle
-`g` = acceleration due to gravity
 
 With this equation we can render the path. To do this we need to pick either `x` or `y` and vary them to order to calculate the other one and plot the values at each point. As you should be able to tell from the equation, we are going to vary `x` and calculate `y`.
 
@@ -44,12 +39,8 @@ for (int i = 0; i < numberOfLines +1; i++)
 Initially i through i could use the simple distnace equation as we do not care about if the projectile lands below the start of not
 
 ```
-D = (s^2 * sin(2a))/g
+Distance = (speed^2 * sin(2 * lanuch angle)) / gravity
 ```
-`D` = Distance
-`s^2` = speed squared
-`a` = launch angle
-`g` = acceleration due to gravity
 
 However this formula does not work if you have negative angles, so when ever the play looked down the trajectory would just flip and face behind the player. To fix this we need to use a formula that takes initial height into account, Derivation can be found [here](https://en.wikipedia.org/wiki/Range_of_a_projectile).
 
