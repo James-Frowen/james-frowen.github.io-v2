@@ -126,7 +126,8 @@ ul li {
 }
 .share-container {
     display: flex;
+    height: 100px;
 }
 .social-container>div {
-    margin: auto 4px;
+    margin: auto;
 }
