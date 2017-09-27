@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to fix lighting for unity cloud build
+title: Weapon trajectory in unity
 date: 2017-09-01
 published: true
 draft: true
