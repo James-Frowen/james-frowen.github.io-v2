@@ -81,6 +81,7 @@ void RenderArc(float speed, float angle, int numberOfLines)
 
     // we want the negative value as our formula's assume gravity is negative.
     float gravity = (- Physics.gravity.y);
+
     float trajectoryDistance = TrajectoryDistance(speed, radianAngle, gravity);
     
     for (int i = 0; i < numberOfLines +1; i++)
@@ -95,13 +96,6 @@ void RenderArc(float speed, float angle, int numberOfLines)
     }
 
     lineRenderer.SetPositions(positions);
-}
-
-float TrajectoryDistance(float speed, float angle, float gravity, float initialHeight = 0f)
-{
-    float xSpeed = Mathf.Cos(angle) * speed; 
-    float ySpeed = Mathf.Sin(angle) * speed;
-    return (xSpeed / gravity) * (ySpeed + Mathf.Sqrt(ySpeed * ySpeed + 2f * gravity * initialHeight));
 }
 ```
 
