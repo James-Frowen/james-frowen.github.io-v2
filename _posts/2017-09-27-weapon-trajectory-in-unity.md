@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Weapon trajectory in unity
-date: 2017-09-01
+date: 2017-09-27
 published: true
 draft: true
 ---
