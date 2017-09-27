@@ -106,5 +106,80 @@ position[i] = (y * Vector3.up) + (x * transform.forward) + transform.position;
 
 We should not have a working trajectory from the transform that has this script attached. Now in order to make this work with an offset only requires minor changes.
 
-First we should set up our objects in unity so that this will be easy to do. 
+First we should set up our objects in unity so that this will be easy to do. The `LineRenderer` and script are put on a child of the weapon and the weapon is a child of the player's head. In my setup the player's head controls rotation up and down, while the player(root) object controls rotation left and right.
+
 *** Image of player set up ***
+
+The target location for the grenade will be in the forward direction from the player object, but the starting location of the grenade will be the weapon.
+
+The height offset is easy to sort out, just add the local `y` position of the weapon into the `TrajectoryDistance` function.
+```csharp
+TrajectoryDistance(speed, radianAngle, gravity, transform.position.y);
+```
+
+In order to calculate the direction you will need the player's transform, the weapon's transform and the trajectory distance. we will add vectors as show in the diagram. We do not want the result vector to have any y component as we have already dealt with this. Lastly we normal the vector as we only want it's direction.
+
+*** diagram of vectors *** 
+```csharp
+public Vector3 CalculateTrajectoryDirection()
+{
+    Vector3 direction = 
+        (player.transform.forward * this.TrajectoryDistance
+        + player.transform.position
+        - weapon.transform.position);
+
+    // we only want the vector in the x/z direction
+    direction.y = 0;
+
+    return direction.normalized;
+}
+```
+
+We can now use that direction to replace transform.forward
+```csharp
+position[i] = (y * Vector3.up) + (x * direction) + transform.position;
+```
+
+
+The angle the grenade is launched at can be calculated in a few ways, the easiest way with this set up is to use the player's head rotation. we also need to clamp the angle so between -90 and 90 so the player can only throw it forward. I have also given the trajectory an initial angle of 30 degrees.
+
+```csharp
+float CalculateAngle() {
+    float headAngle = -1 *  playerHead.transform.rotation.eulerAngles.x;
+    float angle = ClampAngle(headAngle + 30, -90, 89.99);
+    return angle;
+}
+
+float ClampAngle(float angle, float min, float max)
+{
+    // makes sure angle is between -180 and 180
+    while (angle <= -180)
+    {
+        angle += 360;
+    }
+    while (angle > 180)
+    {
+        angle -= 360;
+    }
+
+    // clamps angle within min and max
+    return Mathf.Clamp(angle, min, max);
+}
+```
+*the angle may need to negative depending of the setup, in my case it is.*
+
+Moving on to the grenade it's self. To make this work with the values we have already calculated we can use `rigidbody.velocity` when we launch the grenade and then leave unity to deal with the rest. To calculate the velocity we can use the following
+
+```csharp
+Vector3 calculateVelocity(float speed, Vector3 direction, float radianAngle)
+{
+    float yDirection = Mathf.Tan(radianAngle);
+    
+    Vector3 finalDirection = new Vector3(direction.x, yDirection, direction.z);
+
+    return speed * finalDirection.normalized;
+}
+```
+For the y direction we just need to calculate the ratio of y motion vs the combined x and z motion. Since we normalised direction earlier the combined x and z is just 1 so we can just use tan of the angle to calculate y. We can then normal the vector to get the new direction and multiple by speed.
+
+And now we should have a trajectory and a projectile that follows it.
