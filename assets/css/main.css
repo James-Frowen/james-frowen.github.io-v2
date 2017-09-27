@@ -99,24 +99,34 @@ ul li {
     margin-bottom: 32px;
 }
 
-.socail-partent {
+.social-partent {
     position: relative;
 }
-.socail-container {
+.social-container {
     position: absolute;
     right: 0px;
     top: -24px;
     display: flex;
 }
-.socail-container>div {
+.social-container>div {
     margin: auto 4px;
 }
 
 
 @media (max-width: 620px) { 
-    .socail-container {
+    .social-container {
         position: relative;
         right: auto;
         top: auto;
     }
+}
+
+
+.share-partent {
+}
+.shares-container {
+    display: flex;
+}
+.social-container>div {
+    margin: auto 4px;
 }
