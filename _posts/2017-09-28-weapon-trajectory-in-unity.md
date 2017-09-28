@@ -6,9 +6,9 @@ published: true
 draft: true
 ---
 
-Firstly i want to start off by saying this post will include a lot of maths and code and assumes some background knoledge of unity, as well as Newtonian and vector mathematics.
+Firstly I want to start off by saying this post will include a lot of maths and code and assumes some background knoledge of unity, as well as Newtonian and vector mathematics.
 
-My goal was to get the trajectory for a grenade to use in my game, [Quantum Robot](https://james-frowen.github.io/projects/quantum-robot/). I wanted this trajectory to start from the weapon and land at a point in front of the player's head/camera. The problem with this is that the weapon is offset in all 3 dimensions so things get complicated fast. Another thing i wanted was to get the trajectory path to the player line up with the projectile once it was launched.
+My goal was to get the trajectory for a grenade to use in my game, [Quantum Robot](https://james-frowen.github.io/projects/quantum-robot/). I wanted this trajectory to start from the weapon and land at a point in front of the player's head/camera. The problem with this is that the weapon is offset in all 3 dimensions so things get complicated fast. Another thing I wanted was to get the trajectory path to the player line up with the projectile once it was launched.
 
 <div class="image-grid-2-1" style="margin-bottom:12px">
   <div class="image-1-1">
@@ -37,7 +37,7 @@ y = x*tan(launch angle) - (x^2 * gravity) / (2 * speed^2 + cos^2(launch angle))
 
 With this equation we can render the path. To do this we need to pick either `x` or `y` and vary them to order to calculate the other one and plot the values at each point. As you should be able to tell from the equation, we are going to vary `x` and calculate `y`.
 
-We are going to take values for x at equal distances from 0 to the distance the projectile hits the ground. 
+We are going to take values for `x` at equal distances from 0 to the distance the projectile hits the ground. 
 
 ```csharp
 for (int i = 0; i < numberOfLines + 1; i++)
@@ -186,7 +186,7 @@ Vector3 calculateVelocity(float speed, Vector3 direction, float radianAngle)
 }
 ```
 
-For the `y` direction we need to calculate the ratio of `y` motion to the combined `x` and `z` motion. Since we normalized direction earlier the combined x and z is 1 so we can use `Tan` to calculate `y`. We can then normalize the vector to get the new direction and multiple by speed.
+For the `y` direction we need to calculate the ratio of `y` motion to the combined `x` and `z` motion. Since we normalized direction earlier the combined `x` and z is 1 so we can use `Tan` to calculate `y`. We can then normalize the vector to get the new direction and multiple by speed.
 
 We should not be finished and have a rendered trajectory and a projectile that follows it.
 
