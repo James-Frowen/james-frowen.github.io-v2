@@ -10,19 +10,19 @@ Firstly i want to start off by saying this post will include a lot of maths and 
 
 My goal was to get the trajectory of a grenade to start from the weapon and land at a point in front of the player's head/camera. The problem with this is that the weapon is offset in all 3 dimensions so things get complicated fast. Another minor problem was getting the trajectory path shown to the player line up with the projectile once it was launched.
 
-<div class="image-grid-2-1">
-    <div class="image-1-1">
-      <p>
-        To display the trajectory you can used a simple <a href="https://docs.unity3d.com/Manual/class-LineRenderer.html">LineRenderer</a>, and to make the projectile move you can apply motion to a <a href="https://docs.unity3d.com/Manual/class-Rigidbody.html">Rigidbody</a>.
-      </p>
-      <p>
-        I decided that the start of the trajectory path was more important so i made the thickness of the LineRenderer decrease over its path. By doing this i dont have to worry about if the projectile is going to land below the height it started at because the line would be near unseeable by that point anyway. To change the thickness you can use the Width curve in the inspector.
-      </p>
-    </div>
-    <div class="image-2-1">
-      <img src="/assets/images/weapon-trajectory-01.jpg" class="img-responsive rounded-image" width="100%" alt="Line Renderer">
-    </div>
+<div class="image-grid-2-1" style="margin-bottom:12px">
+  <div class="image-1-1">
+    <p>
+    To display the trajectory you can used a simple <a href="https://docs.unity3d.com/Manual/class-LineRenderer.html">LineRenderer</a>, and to make the projectile move you can apply motion to a <a href="https://docs.unity3d.com/Manual/class-Rigidbody.html">Rigidbody</a>.
+    </p>
+    <p>
+    I decided that the start of the trajectory path was more important so i made the thickness of the LineRenderer decrease over its path. By doing this i dont have to worry about if the projectile is going to land below the height it started at because the line would be near unseeable by that point anyway. To change the thickness you can use the Width curve in the inspector.
+    </p>
   </div>
+  <div class="image-2-1">
+    <img src="/assets/images/weapon-trajectory-01.jpg" class="img-responsive rounded-image" width="100%" alt="Line Renderer">
+  </div>
+</div>
 
 
 To get the trajectory started you can simply think of it in 2 dimensions, height, and distance. Starting with values for speed and angle of launch I could can use the [trajectory formulas](https://en.wikipedia.org/wiki/Trajectory).
@@ -33,8 +33,7 @@ The path the takes follows this equation of motion:
 y = x*tan(launch angle) - (x^2 * gravity) / (2 * speed^2 + cos^2(launch angle))
 ```
 
-<img src="/assets/images/weapon-trajectory-03.jpg" class="img-responsive shadow-image" width="100%" alt="Line Renderer">
-
+<img src="/assets/images/weapon-trajectory-03.jpg" class="img-responsive shadow-image" width="100%" alt="Trajectory path">
 
 With this equation we can render the path. To do this we need to pick either `x` or `y` and vary them to order to calculate the other one and plot the values at each point. As you should be able to tell from the equation, we are going to vary `x` and calculate `y`.
 
@@ -58,6 +57,8 @@ Distance = (speed^2 * sin(2 * launch angle)) / gravity
 ```
 
 However this formula does not work if you have negative angles, so when ever the play looked down the trajectory would just flip and face behind the player. To fix this we need to use a formula that takes initial height into account, Derivation can be found [here](https://en.wikipedia.org/wiki/Range_of_a_projectile).
+
+<img src="/assets/images/weapon-trajectory-02.jpg" class="img-responsive shadow-image" width="100%" alt="The path of this projectile launched from a height y0 has a range d.">
 
 Converting that formula we get this
 
