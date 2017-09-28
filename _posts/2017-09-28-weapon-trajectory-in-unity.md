@@ -42,7 +42,7 @@ We are going to take values for x at equal distances from 0 to the distance the 
 ```csharp
 for (int i = 0; i < numberOfLines + 1; i++)
 {
-    // cast numberOfLines to float so answer calculated as a float
+    // cast numberOfLines to float so the answer is calculated as a float
     float t = i / (float)numberOfLines;
     float x = x * trajectoryDistance;
 
@@ -71,7 +71,7 @@ float TrajectoryDistance(float speed, float angle, float gravity, float initialH
 }
 ```
 
-Now we have all of the parts to get our trajectory to work in 2 dimensions. So putting them all together in a way that our `LineRenderer` can use
+Now we have all of the parts to get our trajectory to work in 2 dimensions. The LineRenerer draws linear lines between a set of points. We want to calculate `x` and `y` at points along the trajectory curve, we should calculate atleast 10 points so that our line looks like a curve. 
 
 ```csharp
 void RenderArc(float speed, float angle, int numberOfLines)
@@ -81,7 +81,7 @@ void RenderArc(float speed, float angle, int numberOfLines)
 
     Vector3[] positions = new Vector3[numberOfLines + 1]; 
 
-    // the angle must be in radian in order to use Unities Mathf
+    // the angle must be in radian in order to use unity's Mathf
     float radianAngle = Mathf.Deg2Rad * angle;
 
     // we want the negative value as our formula's assume gravity is negative.
@@ -91,13 +91,13 @@ void RenderArc(float speed, float angle, int numberOfLines)
     
     for (int i = 0; i < numberOfLines +1; i++)
     {
-        float t = (float)i / numberOfLines;
+        // cast numberOfLines to float so the answer is calculated as a float
+        float t = i /  (float)numberOfLines;
         float x = x * trajectoryDistance;
 
         float y = x * Mathf.Tan(radianAngle) - ((gravity * x * x) / (2 * speed * speed * Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle)));
 
-         
-        position[i] = (y * Vector3.up) + (x * transform.forward) + transform.position;
+        position[i] = (y * Vector3.up) + (x * player.transform.forward) + player.transform.position;
     }
 
     lineRenderer.SetPositions(positions);
@@ -105,7 +105,7 @@ void RenderArc(float speed, float angle, int numberOfLines)
 ```
 
 
-A few notes about the position as we convert `x` and `y` to a vector. `y` should be the global up. `x` should be the local forward, this is so that the trajectory is always facing the same direction as our player. Lastly we need to make sure that the trajectory moves with the player.
+A few notes about the position as we convert `x` and `y` to a vector. `y` should be the global up. `x` should be the local forward, this is so that the trajectory is always facing the same direction as our GameObject. Lastly we need to make sure that the trajectory moves with the GameObject.
 
 We should now have a working trajectory starting at the GameObject that has the script attached. In order to make this work with an offset only requires minor changes.
 
@@ -115,12 +115,12 @@ First we should set up our objects in unity so that this will be easy to do. The
 
 The target location for the grenade will be the forward direction from the player object, but the starting location of the grenade will be the weapon.
 
-The height offset is easy to sort out, just add the local `y` position of the weapon into the `TrajectoryDistance` function.
+The height offset is easy to sort out, we can just add the local `y` position of the weapon to `TrajectoryDistance` function call.
 ```csharp
 TrajectoryDistance(speed, radianAngle, gravity, transform.position.y);
 ```
 
-In order to calculate the direction you will need the player's transform, the weapon's transform and the trajectory distance. we will add vectors as show in the diagram. We do not want the result vector to have any y component as we have already dealt with this. Lastly we normal the vector as we only want it's direction.
+In order to calculate the direction you will need the player's transform, the weapon's transform and the trajectory distance. We will add vectors as show in the diagram. We do not want the result vector to have any `y` component as we have already dealt with that offset. Lastly we normalize the vector as we only want it's direction.
 
 <img src="/assets/images/weapon-trajectory-05.svg" class="img-responsive rounded-image shadow-image" width="100%" alt="Vector to Target">
 
@@ -132,20 +132,21 @@ Vector3 CalculateTrajectoryDirection()
         + player.transform.position
         - weapon.transform.position;
 
-    // we only want the vector in the x/z direction
+    // we only want the vector in the xz direction
     direction.y = 0;
 
+    // only want direction not magnitude
     return direction.normalized;
 }
 ```
 
-We can now use that direction to replace transform.forward
+We can now use that direction to replace transform.forward:
 
 ```csharp
 position[i] = (y * Vector3.up) + (x * direction) + transform.position;
 ```
 
-The angle the grenade is launched at can be calculated in a few ways, the easiest way with this set up is to use the player's head rotation. we also need to clamp the angle so between -90 and 90 so the player can only throw it forward. I have also given the trajectory an initial angle of 30 degrees.
+The angle the grenade is launched at can be calculated in a few ways, the easiest way with this setup is to use the player's head rotation. We also need to clamp the angle between -90 and 90 degrees so the player can only throw forward. I have also given the trajectory an initial angle of 30 degrees.
 
 ```csharp
 float CalculateAngle() {
@@ -170,9 +171,9 @@ float ClampAngle(float angle, float min, float max)
     return Mathf.Clamp(angle, min, max);
 }
 ```
-*the angle may need to negative depending of the setup, in my case it is.*
+*The angle may need to negative depending of the setup, in my case it is.*
 
-Moving on to the grenade it's self. To make this work with the values we have already calculated we can use `rigidbody.velocity` when we launch the grenade and then leave unity to deal with the rest. To calculate the velocity we can use the following
+Moving on to the projectile itself. To make this work with the values we have already calculated we can use `rigidbody.velocity` when we launch the grenade and then leave Unity to deal with the rest. To calculate the velocity we can use the following
 
 ```csharp
 Vector3 calculateVelocity(float speed, Vector3 direction, float radianAngle)
@@ -185,11 +186,9 @@ Vector3 calculateVelocity(float speed, Vector3 direction, float radianAngle)
 }
 ```
 
-For the y direction we just need to calculate the ratio of y motion vs the combined x and z motion. Since we normalised direction earlier the combined x and z is just 1 so we can just use tan of the angle to calculate y. We can then normal the vector to get the new direction and multiple by speed.
+For the `y` direction we need to calculate the ratio of `y` motion to the combined `x` and `z` motion. Since we normalized direction earlier the combined x and z is 1 so we can use `Tan` to calculate `y`. We can then normalize the vector to get the new direction and multiple by speed.
 
-And now we should have a trajectory and a projectile that follows it.
-
-
+We should not be finished and have a rendered trajectory and a projectile that follows it.
 
 <video 
     class="img-responsive rounded-image full-shadow"
