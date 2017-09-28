@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Trajectories in unity
+title: Trajectories in Unity
 description: Calculating a Trajectory for a projectile using Unity LineRenderer and RigidBody.
 dont_show_description: true
 image: /assets/images/trajectories-in-unity-cover.jpg
@@ -8,7 +8,7 @@ date: 2017-09-28
 published: true
 ---
 
-Firstly I want to start off by saying this post will include a lot of maths and code and assumes some background knowledge of unity, as well as Newtonian and vector mathematics.
+Firstly I want to start off by saying this post will include a lot of maths and code and assumes some background knowledge of Unity, as well as Newtonian and vector mathematics.
 
 My goal was to get the trajectory for a grenade to use in my game, [Quantum Robot](https://james-frowen.github.io/projects/quantum-robot/). I wanted this trajectory to start from the weapon and land at a point in front of the player's head/camera. The problem with this is that the weapon is offset in all 3 dimensions so things get complicated fast. Another thing I wanted was to get the trajectory path to the player line up with the projectile once it was launched.
 
@@ -83,7 +83,7 @@ void RenderArc(float speed, float angle, int numberOfLines)
 
     Vector3[] positions = new Vector3[numberOfLines + 1]; 
 
-    // the angle must be in radian in order to use unity's Mathf
+    // the angle must be in radian in order to use Unity's Mathf
     float radianAngle = Mathf.Deg2Rad * angle;
 
     // we want the negative value as our formula's assume gravity is negative.
@@ -111,7 +111,7 @@ A few notes about the position as we convert `x` and `y` to a vector. `y` should
 
 We should now have a working trajectory starting at the GameObject that has the script attached. In order to make this work with an offset only requires minor changes.
 
-First we should set up our objects in unity so that this will be easy to do. The LineRenderer and script are put on a child of the weapon and the weapon is a child of the player's head. In my setup the player's head controls rotation up and down, while the player(root) object controls rotation left and right.
+First we should set up our objects in Unity so that this will be easy to do. The LineRenderer and script are put on a child of the weapon and the weapon is a child of the player's head. In my setup the player's head controls rotation up and down, while the player(root) object controls rotation left and right.
 
 <img src="/assets/images/trajectory-player-hierarchy.jpg" class="img-responsive rounded-image shadow-image" width="100%" alt="Player Hierarchy">
 
