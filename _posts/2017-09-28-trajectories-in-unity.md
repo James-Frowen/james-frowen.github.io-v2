@@ -1,12 +1,15 @@
 ---
 layout: post
-title: Weapon trajectory in unity
+title: Trajectories in unity
+description: Calculating a Trajectory for a projectile using Unity LineRenderer and RigidBody
+dont_show_description: true
+image: /assets/images/weapon-trajectory-cover.jpg
 date: 2017-09-28
 published: true
 draft: true
 ---
 
-Firstly I want to start off by saying this post will include a lot of maths and code and assumes some background knoledge of unity, as well as Newtonian and vector mathematics.
+Firstly I want to start off by saying this post will include a lot of maths and code and assumes some background knowledge of unity, as well as Newtonian and vector mathematics.
 
 My goal was to get the trajectory for a grenade to use in my game, [Quantum Robot](https://james-frowen.github.io/projects/quantum-robot/). I wanted this trajectory to start from the weapon and land at a point in front of the player's head/camera. The problem with this is that the weapon is offset in all 3 dimensions so things get complicated fast. Another thing I wanted was to get the trajectory path to the player line up with the projectile once it was launched.
 
