@@ -50,10 +50,10 @@ for (int i = 0; i < numberOfLines +1; i++)
 }
 ```
 
-Initially i through i could use the simple distnace equation as we do not care about if the projectile lands below the start of not
+Initially i through i could use the simple distance equation as we do not care about if the projectile lands below the start of not
 
 ```
-Distance = (speed^2 * sin(2 * lanuch angle)) / gravity
+Distance = (speed^2 * sin(2 * launch angle)) / gravity
 ```
 
 However this formula does not work if you have negative angles, so when ever the play looked down the trajectory would just flip and face behind the player. To fix this we need to use a formula that takes initial height into account, Derivation can be found [here](https://en.wikipedia.org/wiki/Range_of_a_projectile).
