@@ -33,7 +33,7 @@ The path the takes follows this equation of motion:
 y = x*tan(launch angle) - (x^2 * gravity) / (2 * speed^2 + cos^2(launch angle))
 ```
 
-<img src="/assets/images/weapon-trajectory-03.jpg" class="img-responsive rounded-image" width="100%" alt="Line Renderer">
+<img src="/assets/images/weapon-trajectory-03.jpg" class="img-responsive shadow-image" width="100%" alt="Line Renderer">
 
 
 With this equation we can render the path. To do this we need to pick either `x` or `y` and vary them to order to calculate the other one and plot the values at each point. As you should be able to tell from the equation, we are going to vary `x` and calculate `y`.
