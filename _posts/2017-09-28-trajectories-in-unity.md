@@ -6,7 +6,6 @@ dont_show_description: true
 image: /assets/images/weapon-trajectory-cover.jpg
 date: 2017-09-28
 published: true
-draft: true
 ---
 
 Firstly I want to start off by saying this post will include a lot of maths and code and assumes some background knowledge of unity, as well as Newtonian and vector mathematics.
