@@ -111,7 +111,7 @@ We should now have a working trajectory starting at the GameObject that has the 
 
 First we should set up our objects in unity so that this will be easy to do. The LineRenderer and script are put on a child of the weapon and the weapon is a child of the player's head. In my setup the player's head controls rotation up and down, while the player(root) object controls rotation left and right.
 
-<img src="/assets/images/weapon-trajectory-04.jpg" class="img-responsive shadow-image" style="margin: auto" alt="Player Hierarchy">
+<img src="/assets/images/weapon-trajectory-04.jpg" class="img-responsive shadow-image" width="100%" alt="Player Hierarchy">
 
 The target location for the grenade will be in the forward direction from the player object, but the starting location of the grenade will be the weapon.
 
