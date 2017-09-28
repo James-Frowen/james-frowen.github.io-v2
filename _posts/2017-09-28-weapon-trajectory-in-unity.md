@@ -58,7 +58,7 @@ Distance = (speed^2 * sin(2 * launch angle)) / gravity
 
 However this formula does not work if you have negative angles, so when ever the play looked down the trajectory would just flip and face behind the player. To fix this we need to use a formula that takes initial height into account, Derivation can be found [here](https://en.wikipedia.org/wiki/Range_of_a_projectile).
 
-<img src="/assets/images/weapon-trajectory-02.jpg" class="img-responsive shadow-image" width="100%" alt="The path of this projectile launched from a height y0 has a range d.">
+<img src="/assets/images/weapon-trajectory-02.jpg" class="img-responsive shadow-image" width="100%" alt="Distnace of projectile">
 
 Converting that formula we get this
 
@@ -107,11 +107,11 @@ void RenderArc(float speed, float angle, int numberOfLines)
 
 A few notes about the position as we convert `x` and `y` to a vector. `y` should be the global up. `x` should be the local forward, this is so that the trajectory is always facing the same direction as our player. Lastly we need to make sure that the trajectory moves with the player.
 
-We should not have a working trajectory from the transform that has this script attached. Now in order to make this work with an offset only requires minor changes.
+We should now have a working trajectory starting at the GameObject that has the script attached. In order to make this work with an offset only requires minor changes.
 
-First we should set up our objects in unity so that this will be easy to do. The `LineRenderer` and script are put on a child of the weapon and the weapon is a child of the player's head. In my setup the player's head controls rotation up and down, while the player(root) object controls rotation left and right.
+First we should set up our objects in unity so that this will be easy to do. The LineRenderer and script are put on a child of the weapon and the weapon is a child of the player's head. In my setup the player's head controls rotation up and down, while the player(root) object controls rotation left and right.
 
-*** Image of player set up ***
+<img src="/assets/images/weapon-trajectory-04.jpg" class="img-responsive shadow-image" style="margin: auto" alt="Player Hierarchy">
 
 The target location for the grenade will be in the forward direction from the player object, but the starting location of the grenade will be the weapon.
 
