@@ -41,9 +41,10 @@ With this equation we can render the path. To do this we need to pick either `x`
 We are going to take values for x at equal distances from 0 to the distance the projectile hits the ground. 
 
 ```csharp
-for (int i = 0; i < numberOfLines +1; i++)
+for (int i = 0; i < numberOfLines + 1; i++)
 {
-    float t = (float)i / numberOfLines;
+    // cast numberOfLines to float so answer calculated as a float
+    float t = i / (float)numberOfLines;
     float x = x * trajectoryDistance;
 
     // calculate y
