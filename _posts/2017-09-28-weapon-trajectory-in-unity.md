@@ -20,7 +20,7 @@ My goal was to get the trajectory of a grenade to start from the weapon and land
     </p>
   </div>
   <div class="image-2-1">
-    <img src="/assets/images/weapon-trajectory-01.jpg" class="img-responsive rounded-image" width="100%" alt="Line Renderer">
+    <img src="/assets/images/weapon-trajectory-01.jpg" class="img-responsive rounded-image full-shadow" width="100%" alt="Line Renderer">
   </div>
 </div>
 
@@ -33,7 +33,7 @@ The path the takes follows this equation of motion:
 y = x*tan(launch angle) - (x^2 * gravity) / (2 * speed^2 + cos^2(launch angle))
 ```
 
-<img src="/assets/images/weapon-trajectory-03.jpg" class="img-responsive shadow-image" width="100%" alt="Trajectory path">
+<img src="/assets/images/weapon-trajectory-03.jpg" class="img-responsive rounded-image shadow-image" width="100%" alt="Trajectory path">
 
 With this equation we can render the path. To do this we need to pick either `x` or `y` and vary them to order to calculate the other one and plot the values at each point. As you should be able to tell from the equation, we are going to vary `x` and calculate `y`.
 
@@ -58,7 +58,7 @@ Distance = (speed^2 * sin(2 * launch angle)) / gravity
 
 However this formula does not work if you have negative angles, so when ever the play looked down the trajectory would just flip and face behind the player. To fix this we need to use a formula that takes initial height into account, Derivation can be found [here](https://en.wikipedia.org/wiki/Range_of_a_projectile).
 
-<img src="/assets/images/weapon-trajectory-02.jpg" class="img-responsive shadow-image" width="100%" alt="Distnace of projectile">
+<img src="/assets/images/weapon-trajectory-02.jpg" class="img-responsive rounded-image shadow-image" width="100%" alt="Distnace of projectile">
 
 Converting that formula we get this
 
@@ -111,7 +111,7 @@ We should now have a working trajectory starting at the GameObject that has the 
 
 First we should set up our objects in unity so that this will be easy to do. The LineRenderer and script are put on a child of the weapon and the weapon is a child of the player's head. In my setup the player's head controls rotation up and down, while the player(root) object controls rotation left and right.
 
-<img src="/assets/images/weapon-trajectory-04.jpg" class="img-responsive shadow-image" width="100%" alt="Player Hierarchy">
+<img src="/assets/images/weapon-trajectory-04.jpg" class="img-responsive rounded-image shadow-image" width="100%" alt="Player Hierarchy">
 
 The target location for the grenade will be the forward direction from the player object, but the starting location of the grenade will be the weapon.
 
@@ -122,7 +122,7 @@ TrajectoryDistance(speed, radianAngle, gravity, transform.position.y);
 
 In order to calculate the direction you will need the player's transform, the weapon's transform and the trajectory distance. we will add vectors as show in the diagram. We do not want the result vector to have any y component as we have already dealt with this. Lastly we normal the vector as we only want it's direction.
 
-<img src="/assets/images/weapon-trajectory-05.svg" class="img-responsive shadow-image" width="100%" alt="Vector to Target">
+<img src="/assets/images/weapon-trajectory-05.svg" class="img-responsive rounded-image shadow-image" width="100%" alt="Vector to Target">
 
 ```csharp
 Vector3 CalculateTrajectoryDirection()
