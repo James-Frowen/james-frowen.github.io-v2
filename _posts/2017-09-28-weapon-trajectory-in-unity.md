@@ -113,7 +113,7 @@ First we should set up our objects in unity so that this will be easy to do. The
 
 <img src="/assets/images/weapon-trajectory-04.jpg" class="img-responsive shadow-image" width="100%" alt="Player Hierarchy">
 
-The target location for the grenade will be in the forward direction from the player object, but the starting location of the grenade will be the weapon.
+The target location for the grenade will be the forward direction from the player object, but the starting location of the grenade will be the weapon.
 
 The height offset is easy to sort out, just add the local `y` position of the weapon into the `TrajectoryDistance` function.
 ```csharp
@@ -122,14 +122,15 @@ TrajectoryDistance(speed, radianAngle, gravity, transform.position.y);
 
 In order to calculate the direction you will need the player's transform, the weapon's transform and the trajectory distance. we will add vectors as show in the diagram. We do not want the result vector to have any y component as we have already dealt with this. Lastly we normal the vector as we only want it's direction.
 
-*** diagram of vectors *** 
+<img src="/assets/images/weapon-trajectory-05.svg" class="img-responsive shadow-image" width="100%" alt="Vector to Target">
+
 ```csharp
 Vector3 CalculateTrajectoryDirection()
 {
     Vector3 direction = 
-        (player.transform.forward * this.TrajectoryDistance
+        player.transform.forward * this.TrajectoryDistance
         + player.transform.position
-        - weapon.transform.position);
+        - weapon.transform.position;
 
     // we only want the vector in the x/z direction
     direction.y = 0;
