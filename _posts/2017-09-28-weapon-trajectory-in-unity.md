@@ -6,17 +6,17 @@ published: true
 draft: true
 ---
 
-Firstly i want to start off by saying this post will include a lot of maths and code.
+Firstly i want to start off by saying this post will include a lot of maths and code and assumes some background knoledge of unity, as well as Newtonian and vector mathematics.
 
-My goal was to get the trajectory of a grenade to start from the weapon and land at a point in front of the player's head/camera. The problem with this is that the weapon is offset in all 3 dimensions so things get complicated fast. Another minor problem was getting the trajectory path shown to the player line up with the projectile once it was launched.
+My goal was to get the trajectory for a grenade to use in my game, [Quantum Robot](https://james-frowen.github.io/projects/quantum-robot/). I wanted this trajectory to start from the weapon and land at a point in front of the player's head/camera. The problem with this is that the weapon is offset in all 3 dimensions so things get complicated fast. Another thing i wanted was to get the trajectory path to the player line up with the projectile once it was launched.
 
 <div class="image-grid-2-1" style="margin-bottom:12px">
   <div class="image-1-1">
     <p>
-    To display the trajectory you can used a simple <a href="https://docs.unity3d.com/Manual/class-LineRenderer.html">LineRenderer</a>, and to make the projectile move you can apply motion to a <a href="https://docs.unity3d.com/Manual/class-Rigidbody.html">Rigidbody</a>.
+    To display the trajectory we can used a simple <a href="https://docs.unity3d.com/Manual/class-LineRenderer.html">LineRenderer</a>, and to make the projectile move we can apply motion to a <a href="https://docs.unity3d.com/Manual/class-Rigidbody.html">Rigidbody</a>.
     </p>
     <p>
-    I decided that the start of the trajectory path was more important so i made the thickness of the LineRenderer decrease over its path. By doing this i dont have to worry about if the projectile is going to land below the height it started at because the line would be near unseeable by that point anyway. To change the thickness you can use the Width curve in the inspector.
+    I decided that the start of the trajectory path was more important so we can make the thickness of the LineRenderer decrease over it's path. By doing this we do not have to worry about if the projectile is going to land below the height it started at as the line would be near unseeable by that point anyway. To change the thickness we can use the Width curve in the inspector.
     </p>
   </div>
   <div class="image-2-1">
@@ -25,9 +25,9 @@ My goal was to get the trajectory of a grenade to start from the weapon and land
 </div>
 
 
-To get the trajectory started you can simply think of it in 2 dimensions, height, and distance. Starting with values for speed and angle of launch I could can use the [trajectory formulas](https://en.wikipedia.org/wiki/Trajectory).
+To get the trajectory started we can simply think of it in 2 dimensions, height and distance. Starting with values for speed and angle of launch we can use the [trajectory formulas](https://en.wikipedia.org/wiki/Trajectory).
 
-The path the takes follows this equation of motion:
+The the projectile follows this equation of motion:
 
 ```
 y = x*tan(launch angle) - (x^2 * gravity) / (2 * speed^2 + cos^2(launch angle))
@@ -50,17 +50,17 @@ for (int i = 0; i < numberOfLines + 1; i++)
 }
 ```
 
-Initially i through i could use the simple distance equation as we do not care about if the projectile lands below the start of not
+Initially I thought we could use the simple distance equation as we do not care about if the projectile lands below the start of the start height.
 
 ```
 Distance = (speed^2 * sin(2 * launch angle)) / gravity
 ```
 
-However this formula does not work if you have negative angles, so when ever the play looked down the trajectory would just flip and face behind the player. To fix this we need to use a formula that takes initial height into account, Derivation can be found [here](https://en.wikipedia.org/wiki/Range_of_a_projectile).
+However this formula does not work if you have negative angles, so whenever the player looks down the trajectory would flip and face behind the player. To fix this we need to use a formula that takes initial height into account. Derivation can be found [here](https://en.wikipedia.org/wiki/Range_of_a_projectile).
 
 <img src="/assets/images/weapon-trajectory-02.jpg" class="img-responsive rounded-image shadow-image" width="100%" alt="Distnace of projectile">
 
-Converting that formula we get this
+Converting that formula to C# we get this
 
 ```csharp
 float TrajectoryDistance(float speed, float angle, float gravity, float initialHeight = 0f)
@@ -188,3 +188,14 @@ Vector3 calculateVelocity(float speed, Vector3 direction, float radianAngle)
 For the y direction we just need to calculate the ratio of y motion vs the combined x and z motion. Since we normalised direction earlier the combined x and z is just 1 so we can just use tan of the angle to calculate y. We can then normal the vector to get the new direction and multiple by speed.
 
 And now we should have a trajectory and a projectile that follows it.
+
+
+
+<video 
+    class="img-responsive rounded-image full-shadow"
+    src="/assets/videos/weapon-trajectory.mp4"
+    loop
+    autoplay
+    width="100%"
+    onclick="this.paused ? this.play() : this.pause();"
+></video>
