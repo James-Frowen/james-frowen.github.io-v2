@@ -140,10 +140,10 @@ Vector3 CalculateTrajectoryDirection()
 ```
 
 We can now use that direction to replace transform.forward
+
 ```csharp
 position[i] = (y * Vector3.up) + (x * direction) + transform.position;
 ```
-
 
 The angle the grenade is launched at can be calculated in a few ways, the easiest way with this set up is to use the player's head rotation. we also need to clamp the angle so between -90 and 90 so the player can only throw it forward. I have also given the trajectory an initial angle of 30 degrees.
 
@@ -184,6 +184,7 @@ Vector3 calculateVelocity(float speed, Vector3 direction, float radianAngle)
     return speed * finalDirection.normalized;
 }
 ```
+
 For the y direction we just need to calculate the ratio of y motion vs the combined x and z motion. Since we normalised direction earlier the combined x and z is just 1 so we can just use tan of the angle to calculate y. We can then normal the vector to get the new direction and multiple by speed.
 
 And now we should have a trajectory and a projectile that follows it.
