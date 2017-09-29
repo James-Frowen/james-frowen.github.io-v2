@@ -173,7 +173,7 @@ float ClampAngle(float angle, float min, float max)
     return Mathf.Clamp(angle, min, max);
 }
 ```
-*The angle may need to negative depending of the setup, in my case it is.*
+*The angle may need to be negative depending of the setup, in my case it is.*
 
 Moving on to the projectile itself. To make this work with the values we have already calculated we can use `rigidbody.velocity` when we launch the grenade and then leave Unity to deal with the rest. To calculate the velocity we can use the following
 
