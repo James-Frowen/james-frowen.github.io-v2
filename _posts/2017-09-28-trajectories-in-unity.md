@@ -190,7 +190,7 @@ Vector3 calculateVelocity(float speed, Vector3 direction, float radianAngle)
 
 For the `y` direction we need to calculate the ratio of `y` motion to the combined `x` and `z` motion. Since we normalized direction earlier the combined `x` and z is 1 so we can use `Tan` to calculate `y`. We can then normalize the vector to get the new direction and multiple by speed.
 
-We should not be finished and have a rendered trajectory and a projectile that follows it.
+We should now be finished and have a rendered trajectory and a projectile that follows it.
 
 <video 
     class="img-responsive rounded-image full-shadow"
