@@ -142,7 +142,7 @@ Vector3 CalculateTrajectoryDirection()
 }
 ```
 
-We can now use that direction to replace transform.forward:
+We can now use that direction to replace `transform.forward`:
 
 ```csharp
 position[i] = (y * Vector3.up) + (x * direction) + transform.position;
