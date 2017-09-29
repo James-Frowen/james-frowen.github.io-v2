@@ -29,7 +29,7 @@ My goal was to get the trajectory for a grenade to use in my game, [Quantum Robo
 
 To get the trajectory started we can simply think of it in 2 dimensions, height and distance. Starting with values for speed and angle of launch we can use the [trajectory formulas](https://en.wikipedia.org/wiki/Trajectory).
 
-The the projectile follows this equation of motion:
+The projectile follows this equation of motion:
 
 ```
 y = x*tan(launch angle) - (x^2 * gravity) / (2 * speed^2 + cos^2(launch angle))
