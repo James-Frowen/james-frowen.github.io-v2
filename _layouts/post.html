@@ -40,9 +40,7 @@
           {% endif %}
           
           {% if page.show_itchio_download %}
-            <a href="https://james-frowen.itch.io/quantum-robot">
-              <img src="/assets/icons/itchio.png" width="115" height="46" alt="available on itch.io">
-            </a>
+            {% include itchio_embed.html %}
           {% endif %}
             
           {% if page.draft %}
