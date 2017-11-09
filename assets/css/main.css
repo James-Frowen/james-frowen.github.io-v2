@@ -138,6 +138,9 @@ ul li {
 }
 
 
-.compact-link {
+.compact-link >a {
+    color: #444444;
+}
+.compact-link >a:hover {
     color: #444444;
 }
