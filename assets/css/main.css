@@ -136,3 +136,8 @@ ul li {
 .share-container>div {
     margin: auto;
 }
+
+
+.compact-link {
+    color: #444444;
+}
