@@ -9,3 +9,5 @@ published: true
 ---
 
 Check out the new website: <a href="http://www.quantumrobotgame.com/">www.quantumrobotgame.com</a>
+
+<img src="/assets/images/website-banner.jpg" class="img-responsive rounded-image full-shadow" width="100%" alt="quantum robot website banner">
