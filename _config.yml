@@ -11,7 +11,3 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-feed
-james_frowen:
-  name: James Frowen
-  email: jamesfrowendev@gmail.com
-  web: https://twitter.com/JamesFrowenDev
