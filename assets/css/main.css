@@ -144,3 +144,7 @@ ul li {
 .compact-link >a:hover {
     color: #444444;
 }
+
+footer>a {
+    margin: 20px
+}
