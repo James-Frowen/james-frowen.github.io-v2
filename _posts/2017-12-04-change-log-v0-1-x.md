@@ -27,5 +27,8 @@ With this change i will be moving the game version to v0-1-x to act as a kind of
     * Taser shot
     * Slime attack
     * Slime death
+    * Slime taking damage
     * Door open and close
+* Adding recoil to weapons
+* 
 
