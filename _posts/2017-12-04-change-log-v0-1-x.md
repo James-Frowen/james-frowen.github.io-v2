@@ -1,6 +1,6 @@
 ---
 layout: post
-title: change-log-v0-1-x.md
+title: change-log-v0-1-18.md
 description: 
 image: /assets/images/.jpg
 project: Quantum Robot
@@ -18,6 +18,11 @@ With this change i will be moving the game version to v0-1-x to act as a kind of
 
 ### Changes
 
+* Changing how taser works
+    * Taser now has heat instead of an ammo clip
+    * Player gets stunned when the taser reaches 100%
+    * Shoots 30 projectiles
+    * Each projectiles deals damage and increase stun duration.
 * New Textures
     * Grenade
     * Repair kit
@@ -29,6 +34,18 @@ With this change i will be moving the game version to v0-1-x to act as a kind of
     * Slime death
     * Slime taking damage
     * Door open and close
-* Adding recoil to weapons
-* 
+* Adding recoil animation to weapons
+* Adding reload animation to weapons
+* Adding animation for changing weapons
+* Adding sounds and lights when the door to the boss opens
+* Adding links to the bottom right of the main menu
+* Adding current version to the button left of the main menu
+* Adding music for the game
+    * The music is current from the asset store and can be found here, [Sci-fi Industrial Obscurity](https://assetstore.unity.com/packages/audio/music/electronic/sci-fi-industrial-obscurity-7752)
+* Adding ambient sounds around the map
+* Adding volume settings for each type of sounds.
+
+### Bug Fixes
+
+* Fixed weapon ui bug where it would 
 
