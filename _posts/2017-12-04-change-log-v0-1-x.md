@@ -34,6 +34,8 @@ With this change i will be moving the game version to v0-1-x to act as a kind of
     * Slime death
     * Slime taking damage
     * Door open and close
+    * Spiker activate
+    * Spiker passive
 * Adding recoil animation to weapons
 * Adding reload animation to weapons
 * Adding animation for changing weapons
@@ -43,9 +45,9 @@ With this change i will be moving the game version to v0-1-x to act as a kind of
 * Adding music for the game
     * The music is current from the asset store and can be found here, [Sci-fi Industrial Obscurity](https://assetstore.unity.com/packages/audio/music/electronic/sci-fi-industrial-obscurity-7752)
 * Adding ambient sounds around the map
-* Adding volume settings for each type of sounds.
+* Adding volume settings for each type of sounds
 
 ### Bug Fixes
 
-* Fixed weapon ui bug where it would 
+* Fixed weapon ui bug when changing weapon while reloading
 
