@@ -1,5 +1,5 @@
 ---
-layout: unity_tips
+layout: unity_tip
 title: LateFixedUpdate
 description: A version of FixedUpdate that will run after all others
 image: /assets/images/unity-tips/latefixedupate-logs.jpg
