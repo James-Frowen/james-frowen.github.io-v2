@@ -11,5 +11,4 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-feed
-include:
-  - '_unity_tips'
+include: ['_unity_tips']
