@@ -16,12 +16,17 @@
             </div>  
           </div>
 
+          <a href="/unity-tips/">Back to list of tips</a>
+
+
           <h2>{{ page.title}}</h2>
           {% unless page.dont_show_description %}
           <p>{{ page.description }}</p>
           {% endunless %}
 
           {{ content }}
+
+          <a href="/unity-tips/">Back to list of tips</a>
         </section>
 
         {% include footer.html %}
