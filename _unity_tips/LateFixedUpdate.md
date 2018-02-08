@@ -11,11 +11,11 @@ date: 2018-02-08
 ```csharp
 public void OnEnable()
 {
-    StartCoroutine(RunLateFixedUpdate());
+    StartCoroutine("RunLateFixedUpdate");
 }
 public void OnDisable()
 {
-    StopAllCoroutines();
+    StopCoroutine("RunLateFixedUpdate");
 }
 public IEnumerator RunLateFixedUpdate()
 {
