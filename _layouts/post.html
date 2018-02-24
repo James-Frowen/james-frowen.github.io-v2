@@ -57,9 +57,11 @@
           {% endunless %}
 
           <h2>{{ page.title}}</h2>
+          
           {% unless page.dont_show_description %}
           <p>{{ page.description }}</p>
           {% endunless %}
+
           {{ content }}
 
           <div class="PageNavigation">
