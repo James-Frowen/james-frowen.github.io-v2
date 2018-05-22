@@ -1,3 +1,46 @@
-<b>Header</b>
+<h4>version 0-1-81</h4>
 
-This is some test text
+<b>Changes</b>
+* Updated boss model and mechanics
+* Loading animation now stops after loading is complete
+* Adding advanced graphics settings menu
+    * Fps Counter
+    * vSync
+
+
+<h4>version 0-1-71</h4>
+
+<b>Changes</b>
+* Updated models are textures
+    * New Walls, floors and ceiling
+    * New Doors
+    * New Crawler slimes
+    * New Cannon slimes
+        * New explosive model
+    * New door blocking slime
+
+<b>Bug Fixes</b>
+* Graphics settings should now update correctly when starting the game
+* All settings have been reset to fix a bug with old settings not being deleted.
+
+
+<h4>version 0-1-50</h4>
+
+<b>Changes</b>
+* Adding tutorial to the playground level
+    * Starts after creating a new profile
+    * Can be skipped in the menu
+* Adding pipe models to the spaceship level
+* Increased range Items can be picked up
+* Increasing ammo dropped
+* Modifications now say which slot they can be Equipped
+
+
+<b>Bug Fixes</b>
+* The Taser now correctly stuns the player when overheating
+* Selling more than 4 modifications should now work
+* Popups in the inventory should now always be on top
+* Objectives for the spaceship level should now be shown
+* The spaceship level should now start correctly
+* The health core modification now correctly heals the player
+* The UI now shows up after loading a level for the 2nd time
