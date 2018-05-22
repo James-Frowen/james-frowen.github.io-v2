@@ -1,4 +1,4 @@
-<h4>version 0-1-81</h4>
+<size=36>version 0-1-81</size>
 
 <b>Changes</b>
 * Updated boss model and mechanics
@@ -8,7 +8,7 @@
     * vSync
 
 
-<h4>version 0-1-71</h4>
+<size=36>version 0-1-71</size>
 
 <b>Changes</b>
 * Updated models are textures
@@ -24,7 +24,7 @@
 * All settings have been reset to fix a bug with old settings not being deleted.
 
 
-<h4>version 0-1-50</h4>
+<size=36>version 0-1-50</size>
 
 <b>Changes</b>
 * Adding tutorial to the playground level
@@ -34,7 +34,6 @@
 * Increased range Items can be picked up
 * Increasing ammo dropped
 * Modifications now say which slot they can be Equipped
-
 
 <b>Bug Fixes</b>
 * The Taser now correctly stuns the player when overheating
