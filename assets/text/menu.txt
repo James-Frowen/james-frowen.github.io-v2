@@ -1,4 +1,4 @@
-<size=36>version 0-1-81</size>
+<size=28>version 0-1-81</size>
 
 <b>Changes</b>
 * Updated boss model and mechanics
@@ -8,7 +8,7 @@
     * vSync
 
 
-<size=36>version 0-1-71</size>
+<size=28>version 0-1-71</size>
 
 <b>Changes</b>
 * Updated models are textures
@@ -24,7 +24,7 @@
 * All settings have been reset to fix a bug with old settings not being deleted.
 
 
-<size=36>version 0-1-50</size>
+<size=28>version 0-1-50</size>
 
 <b>Changes</b>
 * Adding tutorial to the playground level
