@@ -1,3 +1,15 @@
+<size=28>version 0-1-86</size>
+
+<b>Changes</b>
+* The Hive boss now have different difficulty levels
+* Added Image effects to some menu background
+* Improved some of the tutorial messages.
+* Color Coding the different modification slots
+* Mouse Sensitivity can now be increased above 1
+* Energy use while running is only drained while going above walking speed
+* Only changing FOV when facing direction of movement
+* Expanded Scroll bar on difficult select so that "Insane" is shown
+
 <size=28>version 0-1-81</size>
 
 <b>Changes</b>
