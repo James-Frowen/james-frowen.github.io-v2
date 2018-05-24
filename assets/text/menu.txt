@@ -2,6 +2,9 @@
 
 <b>Changes</b>
 * The Hive boss now have different difficulty levels
+* Adding Small Cleaning robot
+    * Runs away from the player if they get too close
+    * Collects blobs drops by slimes
 * Added Image effects to some menu background
 * Improved some of the tutorial messages.
 * Color Coding the different modification slots
