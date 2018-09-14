@@ -1,3 +1,51 @@
+<size=28>version 0-1-98</size>
+
+<b>Changes</b>
+* The player no longer gets 1 shot by high damage
+* Health Update
+    * Entities can now have weak points where they take extra damage
+* Weapon Update
+    * Most weapons have projectiles with travel time
+    * Weapon inaccuracy
+        * Starts low
+        * Increase while shooting continuously 
+        * Increase with movement speed
+    * Weapon pickups are now physical objects in the world
+    * Main Weapon have Secondary fire
+        * Default keybinding right mouse button
+        * Zoom
+            * Higher inaccuracy
+            * Lower movement speed
+    * Side weapons
+        * Default keybinding F key
+    * Main Weapons can be dropped
+        * Default keybinding G key 
+    * Side Weapons can be dropped
+        * Default keybinding H key 
+    * Weapons can be pickup
+        * Look at weapon on ground and press keybinding
+        * Default keybinding E key
+    * The player can carry 2 main weapons and 1 side weapon
+        * Can switch between main weapons
+            * Default keybinding Q key
+* New Weapons
+    * Heavy Assault Rifle
+        * High damage
+        * Medium rate of fire
+        * High Zoom strength
+    * Light Assault Rifle
+        * Now has zoom
+        * Before named "Assault Rifle"
+    * Laser Pistol
+        * Now has zoom
+        * Previously named "Pistol"
+    * Repair kit
+        * Now a side weapon
+    * Fire Grenade 
+        * Now a side weapon
+        * Previously named "Grenade"
+* Some Weapons now have muzzle flash
+
 <size=28>version 0-1-86</size>
 
 <b>Changes</b>
