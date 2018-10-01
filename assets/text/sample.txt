@@ -1,0 +1,5 @@
+<size=28>Sample text</size>
+
+<b>Example</b>
+
+This is some example text with formatting can be used in unity text box.
