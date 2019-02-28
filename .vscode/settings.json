@@ -1,3 +1,5 @@
 {
-    "html.format.enable": false
+    "html.format.enable": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
 }
