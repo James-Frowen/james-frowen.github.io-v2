@@ -3,7 +3,7 @@ layout: post
 title: Trajectories in Unity
 description: Calculating a Trajectory for a projectile using Unity LineRenderer and RigidBody.
 dont_show_description: true
-image: /assets/images/trajectories-in-unity-cover.jpg
+image: {{ '/assets/images/trajectories-in-unity-cover.jpg' | relative_url }}
 date: 2017-09-28
 published: true
 ---
@@ -22,7 +22,7 @@ My goal was to get the trajectory for a grenade to use in my game, [Quantum Robo
     </p>
   </div>
   <div class="image-2-1">
-    <img src="/assets/images/trajectory-unity-linerenderer.jpg" class="img-responsive rounded-image full-shadow" width="100%" alt="Line Renderer">
+    <img src="{{ '/assets/images/trajectory-unity-linerenderer.jpg' | relative_url }}" class="img-responsive rounded-image full-shadow" width="100%" alt="Line Renderer">
   </div>
 </div>
 
@@ -35,7 +35,7 @@ The projectile follows this equation of motion:
 y = x*tan(launch angle) - (x^2 * gravity) / (2 * speed^2 + cos^2(launch angle))
 ```
 
-<img src="/assets/images/trajectory-path.jpg" class="img-responsive rounded-image shadow-image" width="100%" alt="Trajectory path">
+<img src="{{ '/assets/images/trajectory-path.jpg' | relative_url }}" class="img-responsive rounded-image shadow-image" width="100%" alt="Trajectory path">
 
 With this equation we can render the path. To do this we need to pick either `x` or `y` and vary them to order to calculate the other one and plot the values at each point. As you should be able to tell from the equation, we are going to vary `x` and calculate `y`.
 
@@ -60,7 +60,7 @@ Distance = (speed^2 * sin(2 * launch angle)) / gravity
 
 However this formula does not work if you have negative angles, so whenever the player looks down the trajectory would flip and face behind the player. To fix this we need to use a formula that takes initial height into account. Derivation can be found [here](https://en.wikipedia.org/wiki/Range_of_a_projectile).
 
-<img src="/assets/images/trajectory-path-height-offset.jpg" class="img-responsive rounded-image shadow-image" width="100%" alt="Distnace of projectile">
+<img src="{{ '/assets/images/trajectory-path-height-offset.jpg' | relative_url }}" class="img-responsive rounded-image shadow-image" width="100%" alt="Distnace of projectile">
 
 Converting that formula to C# we get this
 
@@ -113,7 +113,7 @@ We should now have a working trajectory starting at the GameObject that has the 
 
 First we should set up our objects in Unity so that this will be easy to do. The LineRenderer and script are put on a child of the weapon and the weapon is a child of the player's head. In my setup the player's head controls rotation up and down, while the player(root) object controls rotation left and right.
 
-<img src="/assets/images/trajectory-player-hierarchy.jpg" class="img-responsive rounded-image shadow-image" width="100%" alt="Player Hierarchy">
+<img src="{{ '/assets/images/trajectory-player-hierarchy.jpg' | relative_url }}" class="img-responsive rounded-image shadow-image" width="100%" alt="Player Hierarchy">
 
 The target location for the grenade will be the forward direction from the player object, but the starting location of the grenade will be the weapon.
 
@@ -124,7 +124,7 @@ TrajectoryDistance(speed, radianAngle, gravity, transform.position.y);
 
 In order to calculate the direction you will need the player's transform, the weapon's transform and the trajectory distance. We will add vectors as show in the diagram. We do not want the result vector to have any `y` component as we have already dealt with that offset. Lastly we normalize the vector as we only want it's direction.
 
-<img src="/assets/images/trajectory-vectors.svg" class="img-responsive rounded-image shadow-image" width="100%" alt="Vector to Target">
+<img src="{{ '/assets/images/trajectory-vectors.svg' | relative_url }}" class="img-responsive rounded-image shadow-image" width="100%" alt="Vector to Target">
 
 ```csharp
 Vector3 CalculateTrajectoryDirection()
@@ -194,7 +194,7 @@ We should now be finished and have a rendered trajectory and a projectile that f
 
 <video 
     class="img-responsive rounded-image full-shadow"
-    src="/assets/videos/trajectory-in-unity.mp4"
+    src="{{ '/assets/videos/trajectory-in-unity.mp4' | relative_url }}"
     loop
     autoplay
     width="100%"

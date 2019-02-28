@@ -15,25 +15,25 @@
 
           {% unless page.download_win64 == null %}
             <a href="{{ page.download_win64 }}">
-            <img src="/assets/icons/windows.svg" class="svg">
+            <img src="{{ '/assets/icons/windows.svg' | relative_url }}" class="svg">
               Windows 64</a>
           {% endunless %}
 
           {% unless page.download_win32 == null %}
             <a href="{{ page.download_win32 }}">
-            <img src="/assets/icons/windows.svg" class="svg">
+            <img src="{{ '/assets/icons/windows.svg' | relative_url }}" class="svg">
               Windows 32</a>
           {% endunless %}
         
           {% unless page.download_mac == null %}
             <a href="{{ page.download_mac }}">
-            <img src="/assets/icons/apple.svg" class="svg">
+            <img src="{{ '/assets/icons/apple.svg' | relative_url }}" class="svg">
               Mac</a>
           {% endunless %}
 
           {% unless page.download_linux32 == null %}
             <a href="{{ page.download_linux32 }}">
-            <img src="/assets/icons/linux-16.png" class="svg">
+            <img src="{{ '/assets/icons/linux-16.png' | relative_url }}" class="svg">
               Linux 32</a>
           {% endunless %}
           

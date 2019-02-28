@@ -2,7 +2,7 @@
 layout: default
 ---
 <h1>Posts</h1>
-<a href="/posts/compact/">Compact view</a>
+<a href= "{{ '/posts/compact/' | relative_url }}">Compact view</a>
 {% for post in site.posts %}
     {% unless post.draft %}
     <div class="post">

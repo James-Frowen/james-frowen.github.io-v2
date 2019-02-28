@@ -2,7 +2,7 @@
 layout: project
 title: Quantum Robot
 description: First person shooter focused on fighting NPCs.
-image: /assets/images/v0-0-2-warehouse-1.jpg
+image: {{ '/assets/images/v0-0-2-warehouse-1.jpg' | relative_url }}
 project_status: In development
 show_itchio_download: true
 show_unity_download: false
@@ -49,12 +49,12 @@ The Enemies AI that priorities different actions
 
 <div class="image-grid-2-1">
     <div class="image-1-1 center-children">
-        <img src="/assets/images/v0-0-2-warehouse-1.jpg" class="img-responsive rounded-image full-shadow" width="100%" alt="warehouse"> 
+        <img src="{{ '/assets/images/v0-0-2-warehouse-1.jpg' | relative_url }}" class="img-responsive rounded-image full-shadow" width="100%" alt="warehouse"> 
     </div>
     <div class="image-2-1">
        <video 
             class="img-responsive rounded-image full-shadow"
-            src="/assets/videos/slime-idle-animation-540.mp4"
+            src="{{ '/assets/videos/slime-idle-animation-540.mp4' | relative_url }}"
             loop
             autoplay
             width="100%"
@@ -63,4 +63,4 @@ The Enemies AI that priorities different actions
     </div>
 </div>
 
-<img src="/assets/images/v0-0-3-warehouse-4.jpg" class="img-responsive rounded-image full-shadow" width="100%" alt="slime attack"> 
+<img src="{{ '/assets/images/v0-0-3-warehouse-4.jpg' | relative_url }}" class="img-responsive rounded-image full-shadow" width="100%" alt="slime attack"> 

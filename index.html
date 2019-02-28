@@ -4,7 +4,7 @@ layout: default
 
 <h1>Unity Tips</h1>
 
-<h2><a href="/unity_tips/">List of Tips</a></h2>
+<h2><a href= "{{ '/unity_tips/' | relative_url }}">List of Tips</a></h2>
 
 <p>A Collection of useful tips for unity. Many of these have niche use cases but can be useful to know about.</p>
 
@@ -12,7 +12,7 @@ layout: default
 <h1>Projects</h1>
 
 <div class="project-details">
-	<h2><a href="/projects/quantum-robot/">Quantum Robot</a></h2>
+	<h2><a href= "{{ '/projects/quantum-robot/' | relative_url }}">Quantum Robot</a></h2>
 	<p>
 		The game is a first person shooter where you fight various NPC in an enclosed environment.
 		Currently the project is still in a prototyping phase, so nothing is final yet. 
@@ -22,7 +22,7 @@ layout: default
 
 
 <h1>Recent Posts</h1>
-<a href="/posts/">View all posts</a>
+<a href= "{{ '/posts/' | relative_url }}">View all posts</a>
 {% for post in site.posts limit:5 %}
 	{% unless post.draft %}
 	<div class="post">

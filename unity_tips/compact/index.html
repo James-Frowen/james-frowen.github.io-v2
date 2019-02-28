@@ -2,7 +2,7 @@
 layout: default
 ---
 <h1>Posts</h1>
-<a href="/unity_tips/">Regular view</a>
+<a href= "{{ '/unity_tips/' | relative_url }}">Regular view</a>
 {% for post in site.unity_tips %}
     <div class="post">
         <h4 class="compact-link"><a href="{{ post.url }}" title="{{ post.title }}">
