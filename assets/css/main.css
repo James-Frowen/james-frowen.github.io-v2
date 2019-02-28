@@ -148,3 +148,17 @@ ul li {
 footer>a {
     margin: 20px
 }
+
+
+.pagination>.page_number {
+    margin-left: 16px;
+    margin-right: 16px
+}
+.pagination>.previous {
+    margin-left: 16px;
+    margin-right: 16px
+}
+.pagination>.next {
+    margin-left: 16px;
+    margin-right: 16px
+}

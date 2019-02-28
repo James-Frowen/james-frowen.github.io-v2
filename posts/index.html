@@ -3,8 +3,10 @@ layout: default
 ---
 <h1>Posts</h1>
 <a href= "{{ '/posts/compact/' | relative_url }}">Compact view</a>
-{% for post in site.posts %}
-    {% unless post.draft %}
+
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+    <!-- {% unless post.draft %} -->
     <div class="post">
         <h2><a href="{{ post.url }}" title="{{ post.title }}">
             {{ post.project }}
@@ -21,5 +23,22 @@ layout: default
             <img src="{{ post.image | relative_url }}" alt="image about {{ post.title }}">
         {% endunless %}
     </div>
-    {% endunless %}
+    <!-- {% endunless %} -->
 {% endfor %}
+<hr>
+<!-- Pagination links -->
+<div class="pagination">
+  <span class="page_number">
+      Page: {{ paginator.page }} of {{ paginator.total_pages }}
+  </span>
+
+  {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="previous">
+      < Previous
+      </a>
+  {% endif %}
+
+  {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}" class="next">Next ></a>
+  {% endif %}
+</div>
