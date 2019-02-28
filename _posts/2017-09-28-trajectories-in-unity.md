@@ -3,7 +3,7 @@ layout: post
 title: Trajectories in Unity
 description: Calculating a Trajectory for a projectile using Unity LineRenderer and RigidBody.
 dont_show_description: true
-image: {{ '/assets/images/trajectories-in-unity-cover.jpg' | relative_url }}
+image: /assets/images/trajectories-in-unity-cover.jpg
 date: 2017-09-28
 published: true
 ---

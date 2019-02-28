@@ -3,7 +3,7 @@ layout: unity_tip
 permalink: /unity_tips/latefixedupdate/
 title: LateFixedUpdate
 description: A version of FixedUpdate that will run after all others
-image: {{ '/assets/images/unity-tips/latefixedupate-logs.jpg' | relative_url }}
+image: /assets/images/unity-tips/latefixedupate-logs.jpg
 date: 2018-02-08
 ---
 <!-- published: true -->
