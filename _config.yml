@@ -12,8 +12,8 @@ plugins:
   - jekyll-seo-tag
   - jekyll-feed
 include: ['_unity_tips']
-
 collections:
   unity_tips:
     output: true
     permalink: /:unity_tips
+url: https://james-frowen.github.io/james-frowen.github.io-v2/
