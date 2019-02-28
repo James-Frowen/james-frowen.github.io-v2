@@ -8,7 +8,7 @@ layout: default
 {% for post in paginator.posts %}
     <!-- {% unless post.draft %} -->
     <div class="post">
-        <h2><a href="{{ post.url }}" title="{{ post.title }}">
+        <h2><a href="{{ post.url | relative_url }}" title="{{ post.title }}">
             {{ post.project }}
             {% unless post.project == null %}
             -
@@ -33,12 +33,12 @@ layout: default
   </span>
 
   {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path }}" class="previous">
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">
       < Previous
       </a>
   {% endif %}
 
   {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path }}" class="next">Next ></a>
+      <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next ></a>
   {% endif %}
 </div>

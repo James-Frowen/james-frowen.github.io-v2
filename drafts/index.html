@@ -5,7 +5,7 @@ layout: default
 {% for post in site.posts %}
     {% if post.draft %}
     <div class="post">
-        <h2><a href="{{ post.url }}" title="{{ post.title }}">
+        <h2><a href="{{ post.url | relative_url }}" title="{{ post.title }}">
             {{ post.project }}
             {% unless post.project == null %}
             -

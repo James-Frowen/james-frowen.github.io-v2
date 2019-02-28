@@ -45,7 +45,7 @@
             {% endif %}
 
             {% if page.show_itchio_download %}
-              <a href="https://james-frowen.itch.io/quantum-robot">
+              <a href="{{ site.itchio_url }}">
                 <img src="{{ '/assets/icons/itchio.png' | relative_url }}" width="115" height="46" alt="available on itch.io">
               </a>
             {% endif %}
@@ -61,7 +61,7 @@
             {% if post.project == page.title %}
               {% unless post.draft %}
               <div class="post">
-                <h2><a href="{{ post.url }}" title="{{ post.title }}">{{ post.project }} - {{ post.title }}</a></h2>
+                <h2><a href="{{ post.url | relative_url }}" title="{{ post.title }}">{{ post.project }} - {{ post.title }}</a></h2>
                 <h3>{{ post.date | date_to_string }}</h3>
                 <p>
                   {{ post.description }}

@@ -6,7 +6,7 @@ layout: default
 {% for post in site.posts %}
     {% unless post.draft %}
     <div class="post">
-        <h4 class="compact-link"><a href="{{ post.url }}" title="{{ post.title }}">
+        <h4 class="compact-link"><a href="{{ post.url | relative_url }}" title="{{ post.title }}">
             {{ post.project }}
             {% unless post.project == null %}
             -

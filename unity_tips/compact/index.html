@@ -5,7 +5,7 @@ layout: default
 <a href= "{{ '/unity_tips/' | relative_url }}">Regular view</a>
 {% for post in site.unity_tips %}
     <div class="post">
-        <h4 class="compact-link"><a href="{{ post.url }}" title="{{ post.title }}">
+        <h4 class="compact-link"><a href="{{ post.url | relative_url }}" title="{{ post.title }}">
             {{ post.title }}
         {{ post.date | date_to_string }}</a></h4>
         <p>
