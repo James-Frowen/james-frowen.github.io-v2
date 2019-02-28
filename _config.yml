@@ -11,6 +11,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-feed
+  - jekyll-paginate
 include: ['_unity_tips']
 collections:
   unity_tips:
