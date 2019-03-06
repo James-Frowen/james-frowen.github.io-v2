@@ -24,3 +24,7 @@ theme source [tactile](https://github.com/pages-themes/tactile)
 
 typescript files are found in the `_ts_src` dir
 
+
+### Github pages Setup
+
+Typescript files should be compiled and the javascript committed to git
