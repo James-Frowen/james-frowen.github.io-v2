@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
-    <div id="container">
-      <div class="inner">
+<body>
+  <div id="container">
+    <div class="inner">
 
-        {% include header.html %}
+      {% include header.html %}
 
-        <section id="main_content">
-          <h1>{{ page.title }}</h1>
-          <h3>{{ page.subtitle }}</h2>
+      <section id="main_content">
+        <h1>{{ page.title }}</h1>
+        <h3>{{ page.subtitle }}</h2>
           <p>{{ page.description }}</p>
           <p>
             <strong>Status:</strong> {{ page.project_status | default: new }}
             <br>
             {% if page.show_unity_download %}
-            <strong>Download:</strong> 
+            <strong>Download:</strong>
 
             {% unless page.download_win64 == null %}
-              <a href="{{ page.download_win64 }}">
+            <a href="{{ page.download_win64 }}">
               <img src="{{ '/assets/icons/windows.svg' | relative_url }}" class="svg">
-                Windows 64</a>
+              Windows 64</a>
             {% endunless %}
 
             {% unless page.download_win32 == null %}
-              <a href="{{ page.download_win32 }}">
+            <a href="{{ page.download_win32 }}">
               <img src="{{ '/assets/icons/windows.svg' | relative_url }}" class="svg">
-                Windows 32</a>
+              Windows 32</a>
             {% endunless %}
-           
+
             {% unless page.download_mac == null %}
-              <a href="{{ page.download_mac }}">
+            <a href="{{ page.download_mac }}">
               <img src="{{ '/assets/icons/apple.svg' | relative_url }}" class="svg">
-                Mac</a>
+              Mac</a>
             {% endunless %}
 
             {% unless page.download_linux32 == null %}
-              <a href="{{ page.download_linux32 }}">
+            <a href="{{ page.download_linux32 }}">
               <img src="{{ '/assets/icons/linux-16.png' | relative_url }}" class="svg">
-                Linux 32</a>
+              Linux 32</a>
             {% endunless %}
-            
+
             {% endif %}
 
             {% if page.show_itchio_download %}
-              <a href="{{ site.itchio_url }}">
-                <img src="{{ '/assets/icons/itchio.png' | relative_url }}" width="115" height="46" alt="available on itch.io">
-              </a>
+            <a href="{{ site.itchio_url }}">
+              <img src="{{ '/assets/icons/itchio.png' | relative_url }}" width="115" height="46" alt="available on itch.io">
+            </a>
             {% endif %}
           </p>
 
@@ -58,29 +58,29 @@
           <hr>
           <h2>Recent Posts</h2>
           {% for post in site.posts limit:5 %}
-            {% if post.project == page.title %}
-              {% unless post.draft %}
-              <div class="post">
-                <h2><a href="{{ post.url | relative_url }}" title="{{ post.title }}">{{ post.project }} - {{ post.title }}</a></h2>
-                <h3>{{ post.date | date_to_string }}</h3>
-                <p>
-                  {{ post.description }}
-                </p>
-                {% unless post.image == null %}
-                  <img src="{{ post.image | relative_url }}" alt="image about {{ post.title }}">
-                {% endunless %}
-              </div>
-              {% endunless %}
-              {% endif %}
+          {% if post.project == page.title %}
+          {% unless post.draft %}
+          <div class="post">
+            <h2><a href="{{ post.url | relative_url }}" title="{{ post.title }}">{{ post.project }} - {{ post.title }}</a></h2>
+            <h3>{{ post.date | date_to_string }}</h3>
+            <p>
+              {{ post.description }}
+            </p>
+            {% unless post.image == null %}
+            <img src="{{ post.image | relative_url }}" alt="image about {{ post.title }}">
+            {% endunless %}
+          </div>
+          {% endunless %}
+          {% endif %}
           {% endfor %}
-          
-        </section>
 
-        {% include footer.html %}
+      </section>
 
-      </div>
+      {% include footer.html %}
+
     </div>
+  </div>
 
-    {% include google_analytics.html %}
-  </body>
+  {% include google_analytics.html %}
+</body>
 </html>
