@@ -27,7 +27,7 @@ class Page {
 function currentProjectHTML(project: Project): string {
   return `
   <div class="col-md-8">
-    <img class="img-fluid" src="${project.image}" alt="" width="750" height="500">
+    <img class="img-fluid rounded-image full-shadow-low" src="${project.image}" alt="${project.title} image">
   </div>
 
   <div class="col-md-4">
@@ -48,7 +48,7 @@ function smallProjectHTML(project: Project): string {
   <div class="col-md-3 col-sm-6 mb-4" id="project-${project.index}">
     <h3>${project.title}</h3>
     <a href="#/" class="img-link">
-      <img class="img-fluid" src="${project.image}" alt="">
+      <img class="img-fluid rounded-image-low full-shadow-low" src="${project.image}" alt="${project.title} image">
     </a>
   </div>`
 }

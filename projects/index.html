@@ -37,4 +37,4 @@ layout: full_page_background
   {% endfor %}
   ];
 </script>
-<script src="{{ '/assets/scripts/ProjectViewer.js' | relative_url }}"></script>
+<script src="{{ '/assets/scripts/ProjectViewer.js?v='  | append: site.github.build_revision | relative_url  }}"></script>

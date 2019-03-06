@@ -35,24 +35,24 @@ projects:
     image: /assets/images/v0-1-81-many-slimes-v2.jpg
     description: Action Shooter with procedural generation
   - title: Wolves
-    image: http://placehold.it/500x300 #/assets/images/.jpg
+    image: /assets/images/wolves-logo-holo.png
     description: Mech Assault fan game 
   - title: Project Blue Sky
-    image: http://placehold.it/500x300 #/assets/images/.jpg
+    image: /assets/images/pbs-game1.jpg
     description: Top down shooter
   - title: Project Lemon
-    image: http://placehold.it/500x300 #/assets/images/.jpg 
+    image: /assets/images/pl-falling-death.jpg 
     description: Puzzle game based off lemmings
   - title: Variables Unity
-    image: http://placehold.it/500x300 #/assets/images/.jpg 
+    image: /assets/images/unity-master-black.png 
     description: Libary for unity
   - title: Unity Shaders
-    image: http://placehold.it/500x300 #/assets/images/.jpg
+    image: /assets/images/unity-master-black.png
     description: Shaders for unity
   - title: Led Strip
-    image: http://placehold.it/500x300 #/assets/images/.jpg
+    image: /assets/images/led-strip-1.jpg
     description: Led strip control by an arduino and a c# form
   - title: Other ideas
-    image: http://placehold.it/500x300 #/assets/images/.jpg
+    image: /assets/images/gaia-demo.jpg
     description: Other early prototype projects
   
