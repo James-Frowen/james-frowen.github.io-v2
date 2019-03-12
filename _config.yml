@@ -22,6 +22,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - gulpfile.js
 collections:
   unity_tips:
     output: true

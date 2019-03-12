@@ -1,5 +1,11 @@
 {
   "dependencies": {
     "@types/jquery": "^3.3.29"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-append-prepend": "^1.0.6",
+    "gulp-typescript": "^5.0.0",
+    "typescript": "^3.3.3333"
   }
 }
