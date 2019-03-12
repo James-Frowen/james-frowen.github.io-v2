@@ -32,21 +32,27 @@ itchio_url: https://james-frowen.itch.io/quantum-robot
 main_project: 0
 projects: 
   - title: Quantum Robot
+    status: In development
     image: /assets/images/v0-1-81-many-slimes-v2.jpg
     description: Action Shooter with procedural generation
   - title: Wolves
+    status: In development
     image: /assets/images/wolves-logo-holo.png
     description: Mech Assault fan game 
   - title: Project Blue Sky
+    status: Abandoned
     image: /assets/images/pbs-game1.jpg
     description: Top down shooter
   - title: Project Lemon
+    status: In development
     image: /assets/images/pl-falling-death.jpg 
     description: Puzzle game based off lemmings
   - title: Variables Unity
+    status: On Going
     image: /assets/images/unity-master-black.png 
     description: Libary for unity
   - title: Unity Shaders
+    status: On Going
     image: /assets/images/unity-master-black.png
     description: Shaders for unity
   - title: Led Strip

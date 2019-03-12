@@ -13,7 +13,10 @@ var Page = (function () {
     return Page;
 }());
 function currentProjectHTML(project) {
-    return "\n  <div class=\"col-md-8\">\n    <img class=\"img-fluid rounded-image full-shadow-low\" src=\"" + project.image + "\" alt=\"" + project.title + " image\">\n  </div>\n\n  <div class=\"col-md-4\">\n    <h3 class=\"my-3\">Project Description</h3>\n    <p>" + project.description + "</p>\n    <!-- <h3 class=\"my-3\">Project Details</h3>\n    <ul>\n      <li>Lorem Ipsum</li>\n      <li>Dolor Sit Amet</li>\n      <li>Consectetur</li>\n      <li>Adipiscing Elit</li>\n    </ul> -->\n  </div>\n  ";
+    var status = (project.status) // true if not null or empty
+        ? "<h4>Status: " + project.status + "</h4>"
+        : "";
+    return "\n  <div class=\"col-md-8\">\n    <img class=\"img-fluid rounded-image full-shadow-low\" src=\"" + project.image + "\" alt=\"" + project.title + " image\">\n  </div>\n\n  <div class=\"col-md-4\">\n    <h3 class=\"my-3\">Project Description</h3>\n    " + status + "\n    <p>" + project.description + "</p>\n  </div>\n  ";
 }
 function smallProjectHTML(project) {
     return "\n  <div class=\"col-md-3 col-sm-6 mb-4\" id=\"project-" + project.index + "\">\n    <h3>" + project.title + "</h3>\n    <a href=\"#/\" class=\"img-link\">\n      <img class=\"img-fluid rounded-image-low full-shadow-low\" src=\"" + project.image + "\" alt=\"" + project.title + " image\">\n    </a>\n  </div>";

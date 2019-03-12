@@ -4,6 +4,7 @@ declare var projects: Project[];
 
 interface Project {
   title: string,
+  status?: string,
   image: string,
   description: string,
   index: number
@@ -25,6 +26,10 @@ class Page {
   }
 }
 function currentProjectHTML(project: Project): string {
+  let status = (project.status) // true if not null or empty
+    ? `<h4>Status: ${project.status}</h4>`
+    : "";
+
   return `
   <div class="col-md-8">
     <img class="img-fluid rounded-image full-shadow-low" src="${project.image}" alt="${project.title} image">
@@ -32,14 +37,8 @@ function currentProjectHTML(project: Project): string {
 
   <div class="col-md-4">
     <h3 class="my-3">Project Description</h3>
+    ${status}
     <p>${project.description}</p>
-    <!-- <h3 class="my-3">Project Details</h3>
-    <ul>
-      <li>Lorem Ipsum</li>
-      <li>Dolor Sit Amet</li>
-      <li>Consectetur</li>
-      <li>Adipiscing Elit</li>
-    </ul> -->
   </div>
   `;
 }

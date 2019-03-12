@@ -32,7 +32,8 @@ layout: full_page_background
     "index": "{{ forloop.index | minus: 1 }}",
       "title": "{{ project.title }}",
         "image": "{{ project.image | relative_url }}",
-          "description": "{{ project.description }}"
+          "description": "{{ project.description }}",
+            "status": "{{ project.status }}"
   },
   {% endfor %}
   ];
