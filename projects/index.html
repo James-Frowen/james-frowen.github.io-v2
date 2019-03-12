@@ -25,17 +25,6 @@ layout: full_page_background
 <!-- /.container -->
 <script>
   var main_project = {{ site.main_project }};
-  var projects =
-    [
-      {% for project in site.projects %}
-  {
-    "index": "{{ forloop.index | minus: 1 }}",
-      "title": "{{ project.title }}",
-        "image": "{{ project.image | relative_url }}",
-          "description": "{{ project.description }}",
-            "status": "{{ project.status }}"
-  },
-  {% endfor %}
-  ];
+  var projects = {{ site.projects | jsonify }};
 </script>
 <script src="{{ '/assets/scripts/ProjectViewer.js?v='  | append: site.github.build_revision | relative_url  }}"></script>
