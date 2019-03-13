@@ -1,7 +1,60 @@
 ---
 layout: full_page_background
 ---
-{% assign big_project = site.projects[site.main_project] %}
+<style>
+  .controls {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 500px;
+    height: 20px;
+    background-color: white;
+  }
+
+  .btn-margin {
+    margin: 2px;
+  }
+</style>
+
+<div class="controls">
+  <!-- disabled -->
+  <script>
+    const backgrounds = [
+      'https://source.unsplash.com/jUWw_NEXjDw/1920x1080',
+      'https://source.unsplash.com/2VXRa5gvpxc/1920x1080',
+      'https://source.unsplash.com/Kim9COAIEGc/1920x1080',
+      'https://source.unsplash.com/Yz2yEUfijmo/1920x1080',
+      'https://source.unsplash.com/Zr31aVCJlO4/1920x1080',
+      'https://source.unsplash.com/ZnMTiwDYXao/1920x1080',
+      'https://source.unsplash.com/s9JAem29Fr4/1920x1080',
+      'https://source.unsplash.com/62bDMqqnWH4/1920x1080',
+      'https://source.unsplash.com/iXXfSw_1J9k/1920x1080',
+      'https://source.unsplash.com/ju3eqN0gl6Y/1920x1080',
+      // 'https://source.unsplash.com//1920x1080',
+    ];
+    const template = (index) => `<button id="b${index}" class="btn btn-primary btn-sm btn-margin" type="button">${index + 1}</button>`;
+    const body = $('body');
+    const controls = $('.controls');
+    let activeButton = null;
+    for (let i = 0; i < backgrounds.length; i++) {
+      controls.append(template(i));
+
+      const url = backgrounds[i];
+      let button = $('#b' + i);
+      button.click(() => {
+        body.css("background-image", `url(${url})`);
+
+
+        button.attr("disabled", "disabled");
+        if (activeButton !== null) {
+          activeButton.removeAttr("disabled");
+        }
+
+        activeButton = button;
+      });
+    }
+  </script>
+</div>
 
 <!-- Page Content -->
 <div class="container">
