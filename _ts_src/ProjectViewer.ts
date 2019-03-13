@@ -1,7 +1,8 @@
 // variables from index.html
 declare const MAIN_PROJECT: number;
 declare const RAW_PROJECTS: RawProject[];
-declare const BASE_URL: string;
+declare const PROJECTS_URL: string;
+declare const SITE_URL: string;
 
 interface RawProject {
   title: string;
@@ -22,6 +23,7 @@ class Project implements RawProject {
 
   constructor(raw: RawProject) {
     Object.assign(this, raw);
+    this.image = SITE_URL + raw.image;
   }
 
   get statusText(): string {
@@ -30,7 +32,7 @@ class Project implements RawProject {
       : "";
   }
   get link(): string {
-    return `${BASE_URL}${this.pageLink}`;
+    return `${PROJECTS_URL}${this.pageLink}`;
   }
   get galleryLink(): string {
     return `${this.link}/gallery`;

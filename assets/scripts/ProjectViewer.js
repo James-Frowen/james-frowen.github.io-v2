@@ -4,6 +4,7 @@
 class Project {
     constructor(raw) {
         Object.assign(this, raw);
+        this.image = SITE_URL + raw.image;
     }
     get statusText() {
         return (this.status) // true if not null or empty
@@ -11,7 +12,7 @@ class Project {
             : "";
     }
     get link() {
-        return `${BASE_URL}${this.pageLink}`;
+        return `${PROJECTS_URL}${this.pageLink}`;
     }
     get galleryLink() {
         return `${this.link}/gallery`;
