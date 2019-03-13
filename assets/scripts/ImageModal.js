@@ -1,3 +1,5 @@
+---
+---
 "use strict";
 var imgList = $(".img-thumbnail");
 // Get the modal

@@ -1,74 +1,97 @@
 // variables from index.html
-declare var main_project: number;
-declare var projects: Project[];
+declare const MAIN_PROJECT: number;
+declare const RAW_PROJECTS: RawProject[];
+declare const BASE_URL: string;
 
-interface Project {
-  title: string,
-  status?: string,
-  image: string,
-  description: string,
-  index: number
+interface RawProject {
+  title: string;
+  status?: string;
+  image: string;
+  description: string;
+  index: number;
+  pageLink: string;
+}
+
+class Project implements RawProject {
+  title: string;
+  status?: string;
+  image: string;
+  description: string;
+  index: number;
+  pageLink: string;
+
+  constructor(raw: RawProject) {
+    Object.assign(this, raw);
+  }
+
+  get statusText(): string {
+    return (this.status) // true if not null or empty
+      ? `<h4>Status: ${this.status}</h4>`
+      : "";
+  }
+  get link(): string {
+    return `${BASE_URL}${this.pageLink}`;
+  }
+  get galleryLink(): string {
+    return `${this.link}/gallery`;
+  }
+
+  currentHTML(): string {
+    return `{% include ForJs/CurrentProject.html %}`;
+  }
+  smallHTML(): string {
+    return `{% include ForJs/SmallProject.html %}`;
+  }
 }
 class Page {
   readonly smallRow = $("#small-project-row");
   readonly currentRow = $("#current-project-row");
   readonly currentTitleHtml = $("#current-project-title");
 
+  readonly projects: Project[];
   currentProjectIndex: number;
   currentProject: Project;
   constructor() {
-    this.setCurrentProject(main_project);
+    this.projects = RAW_PROJECTS.map(rawProject => new Project(rawProject));
+    this.setCurrentProject(MAIN_PROJECT);
   }
 
   setCurrentProject(index: number): any {
     this.currentProjectIndex = index;
-    this.currentProject = projects[index];
+    this.currentProject = this.projects[index];
   }
 }
-function currentProjectHTML(project: Project): string {
-  let status = (project.status) // true if not null or empty
-    ? `<h4>Status: ${project.status}</h4>`
-    : "";
 
-  return `
-  <div class="col-md-8">
-    <img class="img-fluid rounded-image full-shadow-low" src="${project.image}" alt="${project.title} image">
-  </div>
 
-  <div class="col-md-4">
-    <h3 class="my-3">Project Description</h3>
-    ${status}
-    <p>${project.description}</p>
-  </div>
-  `;
-}
-function smallProjectHTML(project: Project): string {
-  return `
-  <div class="col-md-3 col-sm-6 mb-4" id="project-${project.index}">
-    <h3>${project.title}</h3>
-    <a href="#/" class="img-link">
-      <img class="img-fluid rounded-image-low full-shadow-low" src="${project.image}" alt="${project.title} image">
-    </a>
-  </div>`
-}
 function updateCurrentProject(page: Page): void {
   const project = page.currentProject;
   page.currentTitleHtml.text(project.title);
-  page.currentRow.html(currentProjectHTML(project));
+  page.currentRow.html(project.currentHTML());
 }
 function updateSmallProjects(page: Page): void {
+  // delete existing html
   page.smallRow.empty();
 
-  projects.forEach((project, index) => {
-    if (index != page.currentProjectIndex) {
-      let text = smallProjectHTML(project);
-      page.smallRow.append(text);
-      let projectHtml = $(`#project-${index}>.img-link`);
-      projectHtml.click(() => {
-        smallProjectClick(index, page);
-      });
+  // add projects to html
+  page.projects.forEach((project, index) => {
+    if (index != page.currentProjectIndex) { // if not current project
+      addProjectHtmlToRow(project);
+
+      addOnClickFunction(index);
     }
   });
+
+  function addProjectHtmlToRow(project: Project) {
+    let text = project.smallHTML();
+    // add project html to row
+    page.smallRow.append(text);
+  }
+  function addOnClickFunction(index: number) {
+    let projectHtml = $(`#project-${index}>.img-link`);
+    projectHtml.click(() => {
+      smallProjectClick(index, page);
+    });
+  }
 }
 
 function smallProjectClick(index: number, page: Page): void {
@@ -79,11 +102,13 @@ function smallProjectClick(index: number, page: Page): void {
   updateSmallProjects(page);
 }
 
-$(document).ready(function () {
-  console.log("ready");
+function ProjectViewer() {
+  console.log("ProjectViewer init");
 
   const page = new Page();
 
   updateCurrentProject(page);
   updateSmallProjects(page);
-});
+}
+
+$(document).ready(ProjectViewer);

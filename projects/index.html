@@ -23,8 +23,10 @@ layout: full_page_background
 
 </div>
 <!-- /.container -->
+
 <script>
-  var main_project = {{ site.main_project }};
-  var projects = {{ site.projects | jsonify }};
+  const MAIN_PROJECT = {{ site.main_project }};
+  const RAW_PROJECTS = {{ site.projects | jsonify }};
+  const BASE_URL = {{ page.url }};
 </script>
 <script src="{{ '/assets/scripts/ProjectViewer.js?v='  | append: site.github.build_revision | relative_url  }}"></script>

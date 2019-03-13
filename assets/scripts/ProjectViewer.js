@@ -1,53 +1,78 @@
+---
+---
 "use strict";
-var Page = (function () {
-    function Page() {
+class Project {
+    constructor(raw) {
+        Object.assign(this, raw);
+    }
+    get statusText() {
+        return (this.status) // true if not null or empty
+            ? `<h4>Status: ${this.status}</h4>`
+            : "";
+    }
+    get link() {
+        return `${BASE_URL}${this.pageLink}`;
+    }
+    get galleryLink() {
+        return `${this.link}/gallery`;
+    }
+    currentHTML() {
+        return `{% include ForJs/CurrentProject.html %}`;
+    }
+    smallHTML() {
+        return `{% include ForJs/SmallProject.html %}`;
+    }
+}
+class Page {
+    constructor() {
         this.smallRow = $("#small-project-row");
         this.currentRow = $("#current-project-row");
         this.currentTitleHtml = $("#current-project-title");
-        this.setCurrentProject(main_project);
+        this.projects = RAW_PROJECTS.map(rawProject => new Project(rawProject));
+        this.setCurrentProject(MAIN_PROJECT);
     }
-    Page.prototype.setCurrentProject = function (index) {
+    setCurrentProject(index) {
         this.currentProjectIndex = index;
-        this.currentProject = projects[index];
-    };
-    return Page;
-}());
-function currentProjectHTML(project) {
-    var status = (project.status) // true if not null or empty
-        ? "<h4>Status: " + project.status + "</h4>"
-        : "";
-    return "\n  <div class=\"col-md-8\">\n    <img class=\"img-fluid rounded-image full-shadow-low\" src=\"" + project.image + "\" alt=\"" + project.title + " image\">\n  </div>\n\n  <div class=\"col-md-4\">\n    <h3 class=\"my-3\">Project Description</h3>\n    " + status + "\n    <p>" + project.description + "</p>\n  </div>\n  ";
-}
-function smallProjectHTML(project) {
-    return "\n  <div class=\"col-md-3 col-sm-6 mb-4\" id=\"project-" + project.index + "\">\n    <h3>" + project.title + "</h3>\n    <a href=\"#/\" class=\"img-link\">\n      <img class=\"img-fluid rounded-image-low full-shadow-low\" src=\"" + project.image + "\" alt=\"" + project.title + " image\">\n    </a>\n  </div>";
+        this.currentProject = this.projects[index];
+    }
 }
 function updateCurrentProject(page) {
-    var project = page.currentProject;
+    const project = page.currentProject;
     page.currentTitleHtml.text(project.title);
-    page.currentRow.html(currentProjectHTML(project));
+    page.currentRow.html(project.currentHTML());
 }
 function updateSmallProjects(page) {
+    // delete existing html
     page.smallRow.empty();
-    projects.forEach(function (project, index) {
-        if (index != page.currentProjectIndex) {
-            var text = smallProjectHTML(project);
-            page.smallRow.append(text);
-            var projectHtml = $("#project-" + index + ">.img-link");
-            projectHtml.click(function () {
-                smallProjectClick(index, page);
-            });
+    // add projects to html
+    page.projects.forEach((project, index) => {
+        if (index != page.currentProjectIndex) { // if not current project
+            addProjectHtmlToRow(project);
+            addOnClickFunction(index);
         }
     });
+    function addProjectHtmlToRow(project) {
+        let text = project.smallHTML();
+        // add project html to row
+        page.smallRow.append(text);
+    }
+    function addOnClickFunction(index) {
+        let projectHtml = $(`#project-${index}>.img-link`);
+        projectHtml.click(() => {
+            smallProjectClick(index, page);
+        });
+    }
 }
 function smallProjectClick(index, page) {
-    console.log("smallProjectClick with " + index);
+    console.log(`smallProjectClick with ${index}`);
     page.setCurrentProject(index);
     updateCurrentProject(page);
     updateSmallProjects(page);
 }
-$(document).ready(function () {
-    console.log("ready");
-    var page = new Page();
+function ProjectViewer() {
+    console.log("ProjectViewer init");
+    const page = new Page();
     updateCurrentProject(page);
     updateSmallProjects(page);
-});
+}
+$(document).ready(ProjectViewer);
