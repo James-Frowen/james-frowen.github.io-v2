@@ -36,30 +36,38 @@ projects:
     status: In development
     image: /assets/images/v0-1-81-many-slimes-v2.jpg
     description: Action Shooter with procedural generation
+    pageLink: quantum-robot
   - title: Wolves
     status: In development
     image: /assets/images/wolves-logo-holo.png
     description: Mech Assault fan game 
+    pageLink: project-wolves
   - title: Project Blue Sky
     status: Abandoned
     image: /assets/images/pbs-game1.jpg
     description: Top down shooter
+    pageLink: project-blue-sky
   - title: Project Lemon
     status: In development
     image: /assets/images/pl-falling-death.jpg 
     description: Puzzle game based off lemmings
+    pageLink: project-lemon
   - title: Variables Unity
     status: On Going
     image: /assets/images/unity-master-black.png 
     description: Libary for unity
+    pageLink: variables-unity
   - title: Unity Shaders
     status: On Going
     image: /assets/images/unity-master-black.png
     description: Shaders for unity
+    pageLink: unity-shader
   - title: Led Strip
     image: /assets/images/led-strip-1.jpg
     description: Led strip control by an arduino and a c# form
+    pageLink: led-strip
   - title: Other ideas
     image: /assets/images/gaia-demo.jpg
     description: Other early prototype projects
+    pageLink: other-ideas
   
