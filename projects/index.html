@@ -14,6 +14,11 @@ layout: full_page_background
   .btn-margin {
     margin: 2px;
   }
+
+  #hiddenImg {
+    width: 0px;
+    height: 0px;
+  }
 </style>
 
 <div class="controls">
@@ -32,27 +37,48 @@ layout: full_page_background
       'https://source.unsplash.com/ju3eqN0gl6Y/1920x1080',
       // 'https://source.unsplash.com//1920x1080',
     ];
-    const template = (index) => `<button id="b${index}" class="btn btn-primary btn-sm btn-margin" type="button">${index + 1}</button>`;
-    const body = $('body');
-    const controls = $('.controls');
-    let activeButton = null;
-    for (let i = 0; i < backgrounds.length; i++) {
-      controls.append(template(i));
+    function CreateButtons() {
+      const template = (index) => `<button id="b${index}" class="btn btn-primary btn-sm btn-margin" type="button">${index + 1}</button>`;
+      const body = $('body');
+      const controls = $('.controls');
+      let activeButton = null;
+      for (let i = 0; i < backgrounds.length; i++) {
+        controls.append(template(i));
 
-      const url = backgrounds[i];
-      let button = $('#b' + i);
-      button.click(() => {
-        body.css("background-image", `url(${url})`);
+        const url = backgrounds[i];
+        let button = $('#b' + i);
+        button.click(() => {
+          body.css("background-image", `url(${url})`);
 
 
-        button.attr("disabled", "disabled");
-        if (activeButton !== null) {
-          activeButton.removeAttr("disabled");
-        }
+          button.attr("disabled", "disabled");
+          if (activeButton !== null) {
+            activeButton.removeAttr("disabled");
+          }
 
-        activeButton = button;
-      });
+          activeButton = button;
+        });
+      }
+
+
+      // load image in background
+      function loadImagesInBackground() {
+        let index = 0;
+        body.append(`<img id="hiddenImg" src=${backgrounds[0]} />`);
+        let hiddenImg = $('#hiddenImg');
+        hiddenImg.on("load", () => {
+          console.log(`${index} loaded`);
+
+          index++;
+          if (index < backgrounds.length) {
+            let url = backgrounds[index];
+            hiddenImg.attr("src", url);
+          }
+        });
+      }
+      loadImagesInBackground();
     }
+    $(document).ready(CreateButtons);
   </script>
 </div>
 
