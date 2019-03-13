@@ -80,7 +80,7 @@ layout: full_page_background
 <script>
   const MAIN_PROJECT = {{ site.main_project }};
   const PROJECTS_URL = "{{ page.url | relative_url }}";
-  const SITE_URL = "{{ site.url | relative_url }}";
+  const SITE_URL = "{{ site.baseurl | relative_url }}";
   const RAW_PROJECTS = {{ site.projects | jsonify }};
 </script>
 <script src="{{ '/assets/scripts/ProjectViewer.js?v='  | append: site.github.build_revision | relative_url  }}"></script>
