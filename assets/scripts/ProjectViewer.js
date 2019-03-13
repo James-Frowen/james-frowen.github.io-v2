@@ -2,9 +2,10 @@
 ---
 "use strict";
 class Project {
-    constructor(raw) {
+    constructor(raw, index) {
         Object.assign(this, raw);
         this.image = SITE_URL + raw.image;
+        this.index = index;
     }
     get statusText() {
         return (this.status) // true if not null or empty
@@ -29,7 +30,7 @@ class Page {
         this.smallRow = $("#small-project-row");
         this.currentRow = $("#current-project-row");
         this.currentTitleHtml = $("#current-project-title");
-        this.projects = RAW_PROJECTS.map(rawProject => new Project(rawProject));
+        this.projects = RAW_PROJECTS.map((rawProject, index) => new Project(rawProject, index));
         this.setCurrentProject(MAIN_PROJECT);
     }
     setCurrentProject(index) {

@@ -21,9 +21,10 @@ class Project implements RawProject {
   index: number;
   pageLink: string;
 
-  constructor(raw: RawProject) {
+  constructor(raw: RawProject, index: number) {
     Object.assign(this, raw);
     this.image = SITE_URL + raw.image;
+    this.index = index;
   }
 
   get statusText(): string {
@@ -54,7 +55,7 @@ class Page {
   currentProjectIndex: number;
   currentProject: Project;
   constructor() {
-    this.projects = RAW_PROJECTS.map(rawProject => new Project(rawProject));
+    this.projects = RAW_PROJECTS.map((rawProject, index) => new Project(rawProject, index));
     this.setCurrentProject(MAIN_PROJECT);
   }
 
