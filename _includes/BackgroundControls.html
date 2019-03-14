@@ -1,0 +1,94 @@
+<style>
+  .controls {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 500px;
+    height: 20px;
+  }
+
+  .btn-margin {
+    margin: 2px;
+  }
+
+  #hiddenImg {
+    width: 0px;
+    height: 0px;
+  }
+</style>
+
+<script>
+  function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split("=");
+      if (pair[0] == variable) { return pair[1]; }
+    }
+    return (false);
+  }
+</script>
+<div class="controls">
+  <script>
+    const backgrounds = [
+      'https://source.unsplash.com/jUWw_NEXjDw/1920x1080',//1
+      'https://source.unsplash.com/2VXRa5gvpxc/1920x1080',//2
+      'https://source.unsplash.com/Kim9COAIEGc/1920x1080',//3
+      'https://source.unsplash.com/Yz2yEUfijmo/1920x1080',//4
+      'https://source.unsplash.com/Zr31aVCJlO4/1920x1080',//5 - 1 vote
+      'https://source.unsplash.com/ZnMTiwDYXao/1920x1080',//6
+      'https://source.unsplash.com/s9JAem29Fr4/1920x1080',//7
+      'https://source.unsplash.com/62bDMqqnWH4/1920x1080',//8
+      'https://source.unsplash.com/iXXfSw_1J9k/1920x1080',//9
+      'https://source.unsplash.com/ju3eqN0gl6Y/1920x1080',//10
+      // 'https://source.unsplash.com//1920x1080',
+    ];
+    function CreateButtons() {
+      const template = (index) => `<button id="b${index}" class="btn btn-primary btn-sm btn-margin" type="button">${index + 1}</button>`;
+      const body = $('body');
+      const controls = $('.controls');
+      let activeButton = null;
+      for (let i = 0; i < backgrounds.length; i++) {
+        controls.append(template(i));
+
+        const url = backgrounds[i];
+        let button = $('#b' + i);
+        button.click(() => {
+          body.css("background-image", `url(${url})`);
+
+
+          button.attr("disabled", "disabled");
+          if (activeButton !== null) {
+            activeButton.removeAttr("disabled");
+          }
+
+          activeButton = button;
+        });
+      }
+
+
+      // load image in background
+      var backgroundLoad = getQueryVariable("backgroundLoad")
+      if (backgroundLoad === "true") {
+        console.log("Start Background Loading");
+
+        loadImagesInBackground(body);
+      }
+    }
+    function loadImagesInBackground(body) {
+      let index = 0;
+      body.append(`<img id="hiddenImg" src=${backgrounds[0]} />`);
+      let hiddenImg = $('#hiddenImg');
+      hiddenImg.on("load", () => {
+        console.log(`${index} loaded`);
+
+        index++;
+        if (index < backgrounds.length) {
+          let url = backgrounds[index];
+          hiddenImg.attr("src", url);
+        }
+      });
+    }
+    $(document).ready(CreateButtons);
+  </script>
+</div>
