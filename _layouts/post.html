@@ -1,90 +1,92 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
-    <div id="container">
-      <div class="inner">
-        {% include header.html %}
+<body>
+  <div id="container">
+    <div class="inner">
+      {% include header.html %}
 
-        <section id="main_content">
-          <h1><a href="/projects/{{ page.project | downcase | replace: ' ', '-' | relative_url }}">{{ page.project }}</h1></a>
-          {% if page.show_unity_download %}
-          <strong>Download:</strong> 
+      <section id="main_content">
+        <h1><a href="{{ page.project | downcase | replace: ' ', '-' | prepend: '/projects/' | relative_url }}">{{
+            page.project }}</h1></a>
+        {% if page.show_unity_download %}
+        <strong>Download:</strong>
 
-          {% unless page.download_win64 == null %}
-            <a href="{{ page.download_win64 }}">
-            <img src="{{ '/assets/icons/windows.svg' | relative_url }}" class="svg">
-              Windows 64</a>
-          {% endunless %}
+        {% unless page.download_win64 == null %}
+        <a href="{{ page.download_win64 }}">
+          <img src="{{ '/assets/icons/windows.svg' | relative_url }}" class="svg">
+          Windows 64</a>
+        {% endunless %}
 
-          {% unless page.download_win32 == null %}
-            <a href="{{ page.download_win32 }}">
-            <img src="{{ '/assets/icons/windows.svg' | relative_url }}" class="svg">
-              Windows 32</a>
-          {% endunless %}
-        
-          {% unless page.download_mac == null %}
-            <a href="{{ page.download_mac }}">
-            <img src="{{ '/assets/icons/apple.svg' | relative_url }}" class="svg">
-              Mac</a>
-          {% endunless %}
+        {% unless page.download_win32 == null %}
+        <a href="{{ page.download_win32 }}">
+          <img src="{{ '/assets/icons/windows.svg' | relative_url }}" class="svg">
+          Windows 32</a>
+        {% endunless %}
 
-          {% unless page.download_linux32 == null %}
-            <a href="{{ page.download_linux32 }}">
-            <img src="{{ '/assets/icons/linux-16.png' | relative_url }}" class="svg">
-              Linux 32</a>
-          {% endunless %}
-          
-          {% endif %}
-          
-          {% if page.show_itchio_download %}
-            {% include itchio_embed.html %}
-          {% endif %}
-            
-          {% if page.draft %}
-          <h3>This post is a draft and may be altered at any time.</h3>
-          {% endif %}
+        {% unless page.download_mac == null %}
+        <a href="{{ page.download_mac }}">
+          <img src="{{ '/assets/icons/apple.svg' | relative_url }}" class="svg">
+          Mac</a>
+        {% endunless %}
 
-          {% unless page.draft %}
-          <div class="share-partent">
-            <div class="share-container">
+        {% unless page.download_linux32 == null %}
+        <a href="{{ page.download_linux32 }}">
+          <img src="{{ '/assets/icons/linux-16.png' | relative_url }}" class="svg">
+          Linux 32</a>
+        {% endunless %}
+
+        {% endif %}
+
+        {% if page.show_itchio_download %}
+        {% include itchio_embed.html %}
+        {% endif %}
+
+        {% if page.draft %}
+        <h3>This post is a draft and may be altered at any time.</h3>
+        {% endif %}
+
+        {% unless page.draft %}
+        <div class="share-partent">
+          <div class="share-container">
             <div>{% include twitter_share.html %}</div>
             <div>{% include facebook_share.html %}</div>
-            </div>  
           </div>
+        </div>
+        {% endunless %}
+
+        <h2>{{ page.title}}</h2>
+
+        {% unless page.dont_show_description %}
+        <p>{{ page.description }}</p>
+        {% endunless %}
+
+        {{ content }}
+
+        <div class="PageNavigation">
+          {% if page.previous.url %}
+          {% unless page.previous.draft %}
+          <a class="prev" href="{{page.previous.url | relative_url}}">&laquo; {{page.previous.title}}</a>
           {% endunless %}
-
-          <h2>{{ page.title}}</h2>
-          
-          {% unless page.dont_show_description %}
-          <p>{{ page.description }}</p>
+          {% endif %}
+          {% if page.next.url %}
+          {% unless page.next.draft %}
+          <a class="next" href="{{page.next.url | relative_url}}">{{page.next.title}} &raquo;</a>
           {% endunless %}
+          {% endif %}
+        </div>
 
-          {{ content }}
+      </section>
 
-          <div class="PageNavigation">
-            {% if page.previous.url %}
-              {% unless page.previous.draft %}
-                <a class="prev" href="{{page.previous.url | relative_url}}">&laquo; {{page.previous.title}}</a>
-              {% endunless %}
-            {% endif %}
-            {% if page.next.url %}
-              {% unless page.next.draft %}
-                <a class="next" href="{{page.next.url | relative_url}}">{{page.next.title}} &raquo;</a>
-              {% endunless %}
-            {% endif %}
-          </div>
+      {% include footer.html %}
 
-        </section>
-
-        {% include footer.html %}
-
-      </div>
     </div>
+  </div>
 
-    {% unless page.draft %}
-      {% include google_analytics.html %}
-    {% endunless %}
-  </body>
+  {% unless page.draft %}
+  {% include google_analytics.html %}
+  {% endunless %}
+</body>
+
 </html>
