@@ -2,7 +2,7 @@
 layout: project_gallery
 title: Quantum Robot Gallery
 description: Some images
-project_name: quantum-robot
+project_url: quantum-robot
 ---
 
 
