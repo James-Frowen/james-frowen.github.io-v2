@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<h1>Posts</h1>
+<a href="{{ '/posts/compact/' | relative_url }}">Compact view</a>
+
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+<!-- {% unless post.draft %} -->
+<div class="post">
+    <h2><a href="{{ post.url | relative_url }}" title="{{ post.title }}">
+            {{ post.project }}
+            {% unless post.project == null %}
+            -
+            {% endunless %}
+            {{ post.title }}
+        </a></h2>
+    <h3>{{ post.date | date_to_string }}</h3>
+    <p>
+        {{ post.description }}
+    </p>
+    {% unless post.image == null %}
+    <img src="{{ post.image | relative_url }}" alt="image about {{ post.title }}">
+    {% endunless %}
+</div>
+<!-- {% endunless %} -->
+{% endfor %}
+<hr>
+<!-- Pagination links -->
+<div class="pagination">
+    <span class="page_number">
+        Page: {{ paginator.page }} of {{ paginator.total_pages }}
+    </span>
+
+    {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">
+        < Previous </a> {% endif %} {% if paginator.next_page %} <a href="{{ paginator.next_page_path | relative_url }}"
+            class="next">Next >
+    </a>
+    {% endif %}
+</div>

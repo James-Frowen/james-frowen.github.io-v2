@@ -23,15 +23,12 @@ exclude: # files starting with . are already ignored
   - README.md
   - tsconfig.json
 collections:
-  unity_tips:
+  unity-tips:
     output: true
-    permalink: /:collection/:title
+    permalink: /unity-tips/:name
   project_gallery:
     output: true
     permalink: /projects/:name/gallery
-  root:
-    output : true
-    permalink: :name:output_ext
 paginate: 5
 paginate_path: /posts/page:num/
 itchio_url: https://james-frowen.itch.io/quantum-robot

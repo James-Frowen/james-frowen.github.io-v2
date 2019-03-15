@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
-    <div id="container">
-      <div class="inner">
+<body>
+  <div id="container">
+    <div class="inner">
 
-        {% include header.html %}
+      {% include header.html %}
 
-        <section id="main_content">
-          <div class="share-partent">
-            <div class="share-container">
+      <section id="main_content">
+        <div class="share-partent">
+          <div class="share-container">
             <div>{% include twitter_share.html %}</div>
             <div>{% include facebook_share.html %}</div>
-            </div>  
           </div>
+        </div>
 
-          <br>
-          <a href= "{{ '/unity_tips/' | relative_url }}">Back to list of tips</a>
+        <br>
+        <a href="{{ '/unity-tips/' | relative_url }}">Back to list of tips</a>
 
 
-          <h2>{{ page.title}}</h2>
-          {% unless page.dont_show_description %}
-          <p>{{ page.description }}</p>
-          {% endunless %}
+        <h2>{{ page.title}}</h2>
+        {% unless page.dont_show_description %}
+        <p>{{ page.description }}</p>
+        {% endunless %}
 
-          {{ content }}
+        {{ content }}
 
-          <a href= "{{ '/unity_tips/' | relative_url }}">Back to list of tips</a>
-        </section>
+        <a href="{{ '/unity-tips/' | relative_url }}">Back to list of tips</a>
+      </section>
 
-        {% include footer.html %}
+      {% include footer.html %}
 
-      </div>
     </div>
+  </div>
 
-    {% include google_analytics.html %}
-  </body>
+  {% include google_analytics.html %}
+</body>
+
 </html>
