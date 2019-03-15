@@ -19,11 +19,21 @@
     "url": "/posts/page3",
     "expect": "Page: 3 of"
   },
-  "/projects/quantum-robot",
-  "/projects/quantum-robot/gallery",
   "/projects/led-strip",
   "/projects/led-strip/gallery",
+  "/projects/other-ideas",
+  "/projects/other-ideas/gallery",
+  "/projects/project-blue-sky",
+  "/projects/project-blue-sky/gallery",
+  "/projects/project-lemon",
+  "/projects/project-lemon/gallery",
   "/projects/project-wolves",
   "/projects/project-wolves/gallery",
+  "/projects/quantum-robot",
+  "/projects/quantum-robot/gallery",
+  "/projects/shader",
+  "/projects/shader/gallery",
+  "/projects/variables-unity",
+  "/projects/variables-unity/gallery",
   "/docs/variables-unity/intro"
 ]
