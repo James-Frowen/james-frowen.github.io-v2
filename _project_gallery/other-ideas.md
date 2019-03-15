@@ -1,6 +1,6 @@
 ---
 layout: project_gallery
-title: unity shaders Gallery
+title: Other Ideas Gallery
 description: Some images
-project_url: unity-shaders
+project_url: other-ideas
 ---

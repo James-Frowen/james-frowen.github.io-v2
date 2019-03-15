@@ -1,6 +1,6 @@
 ---
 layout: project_gallery
-title: Quantum Robot Gallery
+title: Variable Unity Gallery
 description: Some images
 project_url: variables-unity
 ---

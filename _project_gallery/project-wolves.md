@@ -1,6 +1,6 @@
 ---
 layout: project_gallery
-title: Quantum Robot Gallery
+title: Wolves Gallery
 description: Some images
 project_url: project-wolves
 ---
