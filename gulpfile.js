@@ -15,13 +15,10 @@ function testAllUrl(host, cb) {
   var counter = urlsToCheck.length;
   var allPassed = true;
   urlsToCheck.forEach(url => {
-    testUrl(host, url, (pass) => {
+    let after = (pass) => {
       if (!pass) {
         allPassed = false;
       }
-      // if (pass) {
-      //   logPass(url);
-      // }
       counter--;
       if (counter === 0) {
         if (allPassed) {
@@ -29,7 +26,15 @@ function testAllUrl(host, cb) {
         }
         cb();
       }
-    });
+    }
+    if (typeof url === 'object') {
+      let obj = url;
+      obj.url = host + obj.url;
+      testObject(obj, after);
+    }
+    else {
+      testUrl(host + url, after);
+    }
   });
 
   function logPass(url) {
@@ -41,27 +46,22 @@ function testAllUrl(host, cb) {
     }
   }
 }
-function testUrl(host, url, cb) {
-  if (typeof url === 'object') {
-    testObject(host, url, cb);
-  }
-  else {
-    request({ url: `${host}${url}`, method: "HEAD" }, (error, response, body) => {
-      var pass = checkForErrors(url, error, response);
-      cb(pass);
-    });
-  }
+function testUrl(url, cb) {
+  request({ url, method: "HEAD" }, (error, response, body) => {
+    var pass = checkForErrors(url, error, response);
+    cb(pass);
+  });
 }
-function testObject(host, obj, cb) {
+function testObject(obj, cb) {
   let { url, expect } = obj;
 
-  request({ url: `${host}${url}`, method: "GET" }, (error, response, body) => {
+  request({ url, method: "GET" }, (error, response, body) => {
     let pass = checkForErrors(url, error, response);
-    if (!pass) { return; }
-
-    if (!body.includes(expect)) {
-      console.log(`url failed: ${url}, did not contain expected=${expect}`);
-      pass = false;
+    if (pass && expect !== undefined) {
+      if (!body.includes(expect)) {
+        console.log(`url failed: ${url}, did not contain expected=${expect}`);
+        pass = false;
+      }
     }
 
     cb(pass);
@@ -102,7 +102,6 @@ exports.default = function () {
 
 exports.testUrl = function (cb) {
   testAllUrl(localHost, cb);
-
 }
 exports.testUrlLive = function (cb) {
   testAllUrl(liveHost, cb);
