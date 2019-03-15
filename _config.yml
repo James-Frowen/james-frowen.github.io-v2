@@ -25,7 +25,7 @@ exclude: # files starting with . are already ignored
 collections:
   unity-tips:
     output: true
-    permalink: /unity-tips/:name
+    permalink: /:collection/:name
   project_gallery:
     output: true
     permalink: /projects/:name/gallery
