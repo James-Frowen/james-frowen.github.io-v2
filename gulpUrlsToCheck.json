@@ -1,0 +1,29 @@
+[
+  "/docs",
+  "/favicon.ico",
+  "/feed.xml",
+  "/",
+  "/projects",
+  "/robots.txt",
+  "/sitemap.xml",
+  "/unity-tips",
+  {
+    "url": "/posts/",
+    "expect": "Page: 1 of"
+  },
+  {
+    "url": "/posts/page2",
+    "expect": "Page: 2 of"
+  },
+  {
+    "url": "/posts/page3",
+    "expect": "Page: 3 of"
+  },
+  "/projects/quantum-robot",
+  "/projects/quantum-robot/gallery",
+  "/projects/led-strip",
+  "/projects/led-strip/gallery",
+  "/projects/project-wolves",
+  "/projects/project-wolves/gallery",
+  "/docs/variables-unity/intro"
+]
