@@ -20,12 +20,12 @@
   pageLink: project-lemon
 - title: Variables Unity
   status: On Going
-  image: p-unity-master-black-small.png 
+  image: p-unity-master-black.png 
   description: Libary for unity
   pageLink: variables-unity
 - title: Unity Shaders
   status: On Going
-  image: p-unity-master-black-small.png
+  image: p-unity-master-black.png
   description: Shaders for unity
   pageLink: unity-shaders
 - title: Led Strip
