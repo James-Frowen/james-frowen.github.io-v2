@@ -1,0 +1,40 @@
+<!-- As a heading -->
+<!-- <nav class="navbar navbar-dark"> -->
+<nav class="navbar navbar-light navbar-expand">
+  <!-- Brand -->
+  <a class="navbar-brand mb-0 h1" href="{{ '/' | relative_url }}">
+    <span class="navbar-title"> {{ site.title }}</span>
+    <span class="navbar-subtitle"> {{ site.description }}</span>
+  </a>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- collapsible content -->
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <!-- <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{ '/about' | relative_url }}"><span>About Me</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ '/projects' | relative_url }}"><span>Projects</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ '/posts/' | relative_url }}"><span>Blog Posts</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ '/unity-tips' | relative_url }}"><span>Unity Tips</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ '/links' | relative_url }}"><span>Links</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- <hr class="navbar-line-finish"> -->

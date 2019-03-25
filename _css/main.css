@@ -174,3 +174,7 @@ footer>a {
 .bold-summary {
     font-weight: bold;
 }
+
+.invert {
+    filter: invert(100%);
+}
