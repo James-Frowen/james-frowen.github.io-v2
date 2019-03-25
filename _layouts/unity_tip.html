@@ -21,15 +21,16 @@
 
 
         <h2>{{ page.title}}</h2>
+        <h3>{{ page.date | date_to_string }}</h3>
         {% unless page.dont_show_description %}
         <p>{{ page.description }}</p>
         {% endunless %}
 
         {{ content }}
-
+        <br>
+        <br>
         <a href="{{ '/unity-tips/' | relative_url }}">Back to list of tips</a>
       </section>
-
       {% include footer.html %}
 
     </div>
