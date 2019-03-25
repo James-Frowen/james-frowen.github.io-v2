@@ -6,7 +6,7 @@ layout: full_page_background
 
 <h2>Posts</h2>
 <a href="{{ '/unity-tips/compact/' | relative_url }}">Compact view</a>
-{% for post in site.unity-tips %}
+{% for post in site.unity-tips reversed  %}
 <div class="post">
     <h2><a href="{{ post.url | relative_url }}" title="{{ post.title }}">
             {{ post.title }}
