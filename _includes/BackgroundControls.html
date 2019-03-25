@@ -45,7 +45,7 @@
     ];
     function CreateButtons() {
       const template = (index) => `<button id="b${index}" class="btn btn-primary btn-sm btn-margin" type="button">${index + 1}</button>`;
-      const body = $('body');
+      const body = $('.full-background-body');
       const controls = $('.controls');
       let activeButton = null;
       for (let i = 0; i < backgrounds.length; i++) {
