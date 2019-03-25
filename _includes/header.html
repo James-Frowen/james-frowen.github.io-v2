@@ -1,6 +1,4 @@
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-<script src="https://apis.google.com/js/platform.js"></script>
-<a href= "{{ '/' | relative_url }}">
+<a href="{{ '/' | relative_url }}">
     <header>
         <h1>{{ site.title | default: site.github.repository_name }}</h1>
         <h2>{{ site.description | default: site.github.project_tagline }}</h2>
@@ -8,18 +6,8 @@
 </a>
 <div class="social-partent">
     <div class="social-container">
-        <div>
-            <a 
-                href="https://twitter.com/JamesFrowenDev" 
-                class="twitter-follow-button" 
-                data-show-screen-name="false" 
-                data-show-count="false"
-                data-size="large"   
-            >Follow @JamesFrowenDev</a>
-        </div>
-        <div>
-            <div class="g-ytsubscribe" data-channelid="UCMwWI03oRB34vT0y-HAP5Sg" data-layout="default" data-count="hidden"></div>
-        </div>
+        {% include twitter_follow.html %}
+        {% include youtube_subscribe.html %}
     </div>
 </div>
 <hr>
