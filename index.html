@@ -1,12 +1,28 @@
 ---
-layout: default
+layout: full_page_background
 ---
+
+<!-- 
+
+	Need header with buttons/links to pages
+
+	Main pages should highlight A thing from each??
+
+	** Make blog post on leds? 
+
+This is navigation page
+
+- About me (cv)
+- Projects
+- Blog Posts
+- Unity Tips
+- Links to social media? (twitter/github)
+ -->
 
 <h1>Unity Tips</h1>
 
 <h2><a href="{{ '/unity-tips/' | relative_url }}">List of Tips</a></h2>
 
-<p>A Collection of useful tips for unity. Many of these have niche use cases but can be useful to know about.</p>
 
 
 <h1>Projects</h1>
@@ -23,8 +39,7 @@ layout: default
 
 <h1>Recent Posts</h1>
 <a href="{{ '/posts/' | relative_url }}">View all posts</a>
-{% for post in site.posts limit:5 %}
-{% unless post.draft %}
+{% assign post = site.posts.first %}
 <div class="post">
 	<h2><a href="{{ post.url | relative_url }}" title="{{ post.title }}">
 			{{ post.project }}
@@ -41,5 +56,3 @@ layout: default
 	<img src="{{ post.image | relative_url }}" alt="image about {{ post.title }}">
 	{% endunless %}
 </div>
-{% endunless %}
-{% endfor %}
