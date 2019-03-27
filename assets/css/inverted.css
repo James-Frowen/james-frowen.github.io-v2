@@ -1,0 +1,47 @@
+body {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+}
+
+h2>a {
+  color: #ff4000;
+}
+
+a {
+  color: #2afff2;
+}
+
+body {
+  color: #bbb;
+}
+
+.all-content {
+  background: #181818 url(../images/body-bg-i.png) 0 0 repeat;
+}
+
+header h1 {
+  color: #cfcfcf
+}
+
+footer a {
+  color: #999;
+}
+
+.navbar-subtitle {
+  color: #7f7f7f;
+}
+
+.navbar {
+  border-bottom-color: #fff;
+}
+
+.navbar-nav>.nav-item {
+  border-left-color: #ff7474;
+}
+
+.navbar-line-finish {
+  background: #fff;
+}
+
+.full-shadow {
+  box-shadow: 0 0 10px 0 #fff;
+}
