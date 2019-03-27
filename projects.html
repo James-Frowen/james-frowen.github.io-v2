@@ -1,5 +1,5 @@
 ---
-layout: full_page_background
+layout: master
 ---
 
 <!-- Page Content -->
@@ -29,4 +29,5 @@ layout: full_page_background
   const SITE_URL = "{{ site.ImageBaseUrl | relative_url }}";
   const RAW_PROJECTS = {{ site.data.projects | jsonify }};
 </script>
-<script src="{{ '/assets/scripts/ProjectViewer.js?v='  | append: site.github.build_revision | relative_url  }}"></script>
+<script
+  src="{{ '/assets/scripts/ProjectViewer.js?v='  | append: site.github.build_revision | relative_url  }}"></script>
