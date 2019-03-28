@@ -1,14 +1,14 @@
 const CompileTs = require('./_gulp/CompileTs');
 const TestUrl = require('./_gulp/TestUrls');
-const BuildCss = require('./_gulp/BuildCss');
+const CompileSass = require('./_gulp/CompileSass');
 
 
 exports.default = function () {
   CompileTs.Run();
-  BuildCss.Run();
+  CompileSass.Run();
 
   CompileTs.Watch();
-  BuildCss.Watch();
+  CompileSass.Watch();
 };
 
 exports.testUrl = TestUrl.TestLocal;

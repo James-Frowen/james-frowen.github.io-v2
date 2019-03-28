@@ -1,13 +1,15 @@
 {
-  "dependencies": {
-    "@types/jquery": "^3.3.29"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@types/jquery": "^3.3.29",
     "gulp": "^4.0.0",
     "gulp-append-prepend": "^1.0.6",
     "gulp-clean-css": "^4.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-typescript": "^5.0.0",
+    "node-sass": "^4.11.0",
     "request": "^2.88.0",
     "typescript": "^3.3.3333"
   }

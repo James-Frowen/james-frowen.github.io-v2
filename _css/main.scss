@@ -62,16 +62,20 @@ ul li {
     border-radius: 2px;
 }
 
+$full-shadow-size: (0px 0px 10px 0px);
 .full-shadow {
-    box-shadow: 0px 0px 10px 0px black;
+    box-shadow: $full-shadow-size black;
 }
 
+$full-shadow-low-size: (0px 0px 5px 0px);
 .full-shadow-low {
-    box-shadow: 0px 0px 5px 0px grey;
+    box-shadow: $full-shadow-low-size grey;
 }
 
+$shadow-image-size1: (0 3px 6px);
+$shadow-image-size2: (0 3px 6px);
 .shadow-image {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: $shadow-image-size1 rgba(0, 0, 0, 0.16), $shadow-image-size2 rgba(0, 0, 0, 0.23);
 }
 
 .svg {
@@ -156,10 +160,9 @@ ul li {
 
 .compact-link>a {
     color: #444444;
-}
-
-.compact-link>a:hover {
-    color: #444444;
+    :hover {
+        color: #444444;
+    }
 }
 
 footer>a {
