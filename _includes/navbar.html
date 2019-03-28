@@ -1,10 +1,17 @@
 <!-- As a heading -->
 <nav class="navbar navbar-dark navbar-expand">
   <!-- Brand -->
-  <a class="navbar-brand mb-0 h1" href="{{ '/' | relative_url }}">
-    <span class="navbar-title"> {{ site.title }}</span>
-    <span class="navbar-subtitle"> {{ site.description }}</span>
-  </a>
+  <div class="navbar-brand mb-0 h1">
+    <span class="navbar-title">
+      <a class="" href="{{ '/' | relative_url }}">
+        {{ site.title }}
+      </a>
+
+    </span>
+
+    <span class="navbar-subtitle hide-on-small"> {{ site.description }}</span>
+
+  </div>
 
   <!-- Collapse button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
