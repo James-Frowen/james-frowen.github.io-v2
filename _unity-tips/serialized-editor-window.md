@@ -11,13 +11,11 @@ Base class for Editor windows to make it easier to draw PropertyFields.
 The Class Sets up a SerializedObject for the editor window and makes sure that it updates the Unity Object.
 
 <img src="{{ '/assets/images/serialized-editor-window.jpg' | relative_url }}" class="img-responsive rounded-image full-shadow" width="100%" alt="Images of SerializedEditorWindow script"> 
-<details>
-  <summary class="bold-summary">Full Script (Click Me)
-  </summary>
 
-  <script src="https://gist.github.com/James-Frowen/48c2ef79d4868247fce8b235a659284c.js"></script>
-</details>
-
+{% include gist.html 
+    id = '48c2ef79d4868247fce8b235a659284c'
+    collapsible = true
+%}
 
 ## Example Use
 ```csharp

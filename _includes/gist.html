@@ -1,0 +1,29 @@
+{% comment %}
+gist-id
+collapsible
+{% endcomment %}
+
+{% if include.gist-id %}
+{% assign collapsible = include.collapsible %}
+{% else %}
+{% assign collapsible = true %}
+{% endif %}
+
+
+{% if include.gist-id %}
+{% assign id = include.gist-id %}
+{% else %}
+{% assign id = include.id  %}
+{% endif %}
+
+{% if collapsible %}
+<details>
+  <summary class="bold-summary">Full Script (Click Me)
+  </summary>
+  {% endif %}
+
+  <script src="https://gist.github.com/James-Frowen/{{ id }}.js"></script>
+
+  {% if collapsible %}
+</details>
+{% endif %}
