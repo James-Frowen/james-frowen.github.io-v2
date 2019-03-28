@@ -49,8 +49,10 @@ $buttonSkew: 30deg;
   justify-content: center;
 
   // ** less than 768px
-  width: 100%;
-  border-top: 1px solid black;
+  @media (max-width: 768px) {
+    width: 100%;
+    border-top: 1px solid black;
+  }
 
   // height of title
   @media (min-width: 768px) {
