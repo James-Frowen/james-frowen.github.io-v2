@@ -1,9 +1,30 @@
+$buttonSkew: 30deg;
+
 .navbar-title {
-  font-size: 1.4em;
+  // less thank 576
+  font-size: 1.3em;
+  
+  @media (min-width: 576px) {
+    font-size: 1.5em;
+  }
+  @media (min-width: 768px) {
+    font-size: 1.2em;
+  }
+  @media (min-width: 992px) {
+    font-size: 1.3em;
+  }
+  @media (min-width: 1200px) {
+    font-size: 1.4em;
+  }
 }
 .navbar-subtitle {
   font-size: 0.7em;
   color: grey;
+  
+  display: none;
+  @media (min-width: 1200px) {
+    display: inline;
+  }
 }
 
 .navbar {
@@ -22,15 +43,37 @@
 /* List item */
 .navbar-nav>.nav-item {
   list-style-type: none;
-  border-left: 2px solid darkcyan;
-  transform: skewx(-30deg);
-  padding-right: 10px;
-  /* min-width: 100px; */
-  height: 52px;
-
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  // ** less than 768px
+  width: 100%;
+  border-top: 1px solid black;
+
+  // height of title
+  @media (min-width: 768px) {
+    transform: skewx(-$buttonSkew);
+    border-left: 2px solid darkcyan;
+    padding-right: 10px;
+
+    height: 46px;
+    font-size: 0.92em;
+    
+    padding-right: .3rem;
+    padding-left: .3rem;
+  }
+  @media (min-width: 992px) {
+    height: 49px;
+    font-size: 1em;
+
+    padding-right: .5rem;
+    padding-left: .5rem;
+  }
+  @media (min-width: 1200px) {
+    height: 52px;
+  }
 }
 
 /* link div */
@@ -40,7 +83,9 @@
 /* Text in link */
 .navbar-nav>.nav-item>.nav-link>span {
   display: block; 
-  transform: skewx(30deg);
+  @media (min-width: 768px) {
+    transform: skewx($buttonSkew);
+  }
 }
  
 /* bottom of nav bar */
@@ -54,11 +99,3 @@
   border: none;
 } 
 
-
-.hide-on-small {
-  display: inline;
-
-  @media (max-width: 576px) {
-    display: none;
-  }
-}
