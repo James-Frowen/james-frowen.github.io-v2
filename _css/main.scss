@@ -186,6 +186,9 @@ footer>a {
 .bold-summary {
     font-weight: bold;
 }
+summary {
+    margin-bottom: 8px;
+}
 
 .invert {
     filter: invert(100%);
@@ -201,4 +204,8 @@ footer>a {
     max-height:315px;
 
     width:100%;
+}
+
+.under-line {
+    text-decoration: underline;
 }

@@ -34,6 +34,5 @@ collections:
     permalink: /projects/:name/gallery
 paginate: 5
 paginate_path: /posts/page:num/
-itchio_url: https://james-frowen.itch.io/quantum-robot
 ImageBaseUrl: /assets/images/
 main_project: 0

@@ -26,9 +26,16 @@ h2 {
 h3 {
   color: #777;
 }
+h4 {
+  color :#cfcfcf;
+}
 
 a {
   color: #2afff2;
+
+  &:hover {
+    // color: #3afff3
+  }
 }
 
 footer a {
@@ -70,3 +77,6 @@ footer a {
   border-top-color: white;
 }
 
+summary {
+  color:#dadada;
+}

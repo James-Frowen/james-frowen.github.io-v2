@@ -2,4 +2,38 @@
 layout: default
 ---
 
-Some links will be here
+{% assign col-class = "col-xm-12 col-sm-12 col-lg-6" %}
+
+<div class="container">
+  <div class="row">
+    <div class="{{ col-class }}">
+      <h2>Twitter</h2>
+      <a href="{{ site.data.links.twitter }}">{{ site.data.links.display.twitter }}</a>
+    </div>
+
+    <div class="{{ col-class }}">
+      <h2>Github</h2>
+      <a href="{{ site.data.links.github }}">{{ site.data.links.display.github }}</a>
+    </div>
+
+    <div class="{{ col-class }}">
+      <h2>Itchio</h2>
+      <a href="{{ site.data.links.itchio }}">{{ site.data.links.display.itchio }}</a>
+    </div>
+
+    <div class="{{ col-class }}">
+      <h2>Sketchfab</h2>
+      <a href="{{ site.data.links.sketchfab }}">{{ site.data.links.display.sketchfab }}</a>
+    </div>
+
+    <div class="{{ col-class }}">
+      <h2>LinkedIn</h2>
+      <a href="{{ site.data.links.linkedin }}">{{ site.data.links.display.linkedin }}</a>
+    </div>
+
+    <div class="{{ col-class }}">
+      <h2>Email</h2>
+      <a href="{{ site.data.links.email }}">{{ site.data.links.display.email }}</a>
+    </div>
+  </div>
+</div>
