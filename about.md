@@ -5,13 +5,10 @@ layout: default
 {:.under-line}
 ## Summary
 
-- can work as part of a team
+I am a programmer and game developer who has been creating games and other small projects since 2015. I have a deep understanding of c# and unity. I am also able to quickly learn and use other programming languages and tools.
 
 {:.under-line}
 ## Experience
-<!-- 
-- Indie game projects
-- year as Alacrity, creating prototypes for projects. -->
 
 Software Engineer at The Alacrity Foundation UK, September 2016 - September 2017
 
@@ -19,7 +16,7 @@ Software Engineer at The Alacrity Foundation UK, September 2016 - September 2017
   <summary class="bold-summary">More Details</summary>
 
 <p>
-The Alacrity Foundation is an educational charity. Alacrity offers a year long programme that provides graduates with practical business training and software skills .
+The Alacrity Foundation is an educational charity. Alacrity offers a year long programme that provides graduates with practical business training and software skills.
 </p>
 
 <p>
@@ -43,11 +40,7 @@ Physics Degree at University of Bath, September 2012 - June 2015
 <details>
   <summary class="bold-summary">More Details</summary>
   <p>   
-  I chose to do Physics degree as I have an interest in how the natural work works. Taking this degree also allowed me to improve many skills, including mathematics and problem solving. During my 2nd and 3rd years I started programming using C# and python.
-  </p>
-
-  <p>   
-  In the second year I did basic programming logic, a small amount of C and learnt about pseudo code. In my third year I did 2 simulation projects. I had to change a c# simulations to test different properties of the system. 
+  I chose to do Physics degree as I have an interest in how the natural world works. Taking this degree also allowed me to improve many skills, including mathematics and problem solving. During my 2nd and 3rd years I started programming using C# and python.
   </p>
 
   <p>   
@@ -60,19 +53,26 @@ Physics Degree at University of Bath, September 2012 - June 2015
 
 #### Languages and tools
 
+High experience with 
 - C#
 - JS + TS
 - html + css
 - nodejs
-- python
 - Unity
 - Blender
-- Substance Painter
 - Git
+- GitHub Pages/jekyll/liquid
+
+Medium experience with
+- Substance Painter/Designer
 - Arduino 
 - AWS
-- GitHub Pages 
 - Regex
+
+Low experience with
+- python
+- Lua (Factorio addon, Link to github)
+- Neural Networks (link to github)
 
 
 {:.under-line}
