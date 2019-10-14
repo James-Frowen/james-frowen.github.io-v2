@@ -19,7 +19,12 @@ theme source [tactile](https://github.com/pages-themes/tactile)
 
 `tsc -w`
 
+`gulp`
+
 `bundle exec jekyll serve -I --livereload` from bash
+
+full start Command
+`gulp & bundle exec jekyll serve -I --livereload && fg`
 
 
 typescript files are found in the `_ts_src` dir

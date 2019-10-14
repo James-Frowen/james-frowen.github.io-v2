@@ -59,6 +59,9 @@ High experience with
 - html + css
 - nodejs
 - Unity
+  - Editor Scripts
+  - Shaders
+  - Shader Graph
 - Blender
 - Git
 - GitHub Pages/jekyll/liquid

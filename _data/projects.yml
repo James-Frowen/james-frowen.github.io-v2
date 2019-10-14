@@ -1,42 +1,47 @@
 - title: Quantum Robot
   status: In development
-  image: p-quantum-robot-project-small.jpg
+  image: projects/quantum-robot-project-small.jpg
   description: Action Shooter with procedural generation
   pageLink: quantum-robot
 - title: Wolves
   status: In development
-  image: p-wolves-logo-holo-small.png
+  image: projects/wolves-logo-holo-small.png
   description: Mech Assault fan game 
   pageLink: project-wolves
 - title: Project Blue Sky
   status: Abandoned
-  image: p-pbs-game1.jpg
+  image: projects/pbs-game1.jpg
   description: Top down shooter
   pageLink: project-blue-sky
 - title: Project Lemon
   status: In development
-  image: p-pl-falling-death-small.jpg 
+  image: projects/pl-falling-death-small.jpg 
   description: Puzzle game based off lemmings
   pageLink: project-lemon
 - title: Variables Unity
   status: On Going
-  image: p-unity-master-black.png 
+  image: projects/unity-master-black.png 
   description: Libary for unity
   pageLink: variables-unity
 - title: Unity Shaders
   status: On Going
-  image: p-unity-master-black.png
+  image: projects/unity-master-black.png
   description: Shaders for unity
   pageLink: unity-shaders
 - title: Led Strip
-  image: p-led-strip-1-small.jpg
+  image: projects/led-strip-1-small.jpg
   description: Led strip controled by an arduino and a c# form
   pageLink: led-strip
 - title: Other ideas
-  image: p-gaia-demo-small.jpg
+  image: projects/gaia-demo-small.jpg
   description: Other early prototype projects
   pageLink: other-ideas
 - title: 3d Modeling
   image: 3d-lamp.jpg
   description: Making models mostly for fun
   pageLink: 3d-models
+- title: Project Sliding Rooms
+  status: In development
+  image: projects/project-sliding-rooms.jpg
+  description: Top down shooter, with Randomly moving rooms
+  pageLink: project-sliding-rooms
