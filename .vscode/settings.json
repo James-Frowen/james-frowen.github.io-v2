@@ -2,4 +2,7 @@
     "html.format.enable": true,
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
+    "cSpell.words": [
+        "sketchfab"
+    ],
 }
