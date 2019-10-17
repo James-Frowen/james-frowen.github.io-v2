@@ -71,13 +71,12 @@ project_url: 3d-models
       
     </div>
   </div>
-
 </div>
 <!-- /.container -->
 
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="galleryModal" class="modal">
 
   <!-- The Close Button -->
   <span class="close modelButton">&times;</span>
@@ -89,7 +88,7 @@ project_url: 3d-models
   <span class="previousImg modelButton">&lt;</span>
 
   <div class="modal-inner">
-    <div class="top"></div>
+  <div class="top"></div>
 
   <!-- Modal Content (The Image) -->
   <div class="modal-content mid vertical-center-children">

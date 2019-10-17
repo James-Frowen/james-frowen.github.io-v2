@@ -83,7 +83,7 @@ project_url: quantum-robot
 
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="galleryModal" class="modal">
 
   <!-- The Close Button -->
   <span class="close modelButton">&times;</span>

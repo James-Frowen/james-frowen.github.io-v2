@@ -2,181 +2,237 @@
   // Constent values
   const SKETCHFAB_MODEL = "sketchfab-model";
   const SKETCHFAB_ID = "sketchfabid";
-
-  // get image list
-  const imgList = $(".img-thumbnail");
-  // Get the modal
-  const modal = $('#myModal');
-  const captionText = modal.find("#caption");
-  const modalContent = modal.find(".modal-content");
-  const modalImg = modal.find("#modal-image");
-  const sketchWrapper = modal.find('#sketch-wrapper');
-
-  let nextImg: HTMLElement;
-  let previousImg: HTMLElement;
-
-
-  function sketchEmbed(id: string) {
-    return `
-  <iframe id="sketchfab-iframe"
-  src="https://sketchfab.com/models/${id}/embed" frameborder="0"
-  allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-  `;
-  }
-
-  function setImageDisplay(displayImage: boolean) {
-    if (displayImage) {
-      sketchWrapper.css("display", "none");
-      modalImg.css("display", "block");
-    }
-    else {
-      sketchWrapper.css("display", "block");
-      modalImg.css("display", "none");
-    }
-  }
-  function setNewImage(jElement: JQuery<HTMLElement>) {
-    var src = jElement.attr("src");
-    modalImg.attr("src", src);
-    var alt = jElement.attr("alt");
-    captionText.attr("innerHTML", alt);
-
-    // image zoom
-    new ModalImage(modalImg);
-  }
-
-  function setSketchFabViewer(jElement: JQuery<HTMLElement>) {
-    var id = jElement.attr(SKETCHFAB_ID);
-    var html = sketchEmbed(id);
-    sketchWrapper.html(html);
-  }
-
-  // Get the image and insert it inside the modal - use its "alt" text as a caption
-  imgList.each(function (index, element: HTMLElement) {
-
-    var jElement = $(element);
-    jElement.click(function () {
-      ShowModal();
-
-      nextImg = imgList.get(index + 1 < imgList.length
-        ? index + 1
-        : 0);
-      previousImg = imgList.get(index - 1);
-
-      let isSketchFab = jElement.hasClass(SKETCHFAB_MODEL)
-      setImageDisplay(!isSketchFab);
-
-      if (isSketchFab) {
-        setSketchFabViewer(jElement);
-      }
-      else {
-        setNewImage(jElement);
-      }
-    });
-  });
-
-
-  // Get the <span> element that closes the modal
-  const nextButton = $(".nextImg").first();
-  nextButton.click(ShowNext);
-
-  // Get the <span> element that closes the modal
-  const previousButton = $(".previousImg").first();
-  previousButton.click(ShowPrevious);
-
-  // Get the <span> element that closes the modal
-  var closeButton = $(".close").first();
-  closeButton.click(CloseModal);
-  const dontClick = [
-    modalImg.get(0),
-    nextButton.get(0),
-    previousButton.get(0),
-    closeButton.get(0)
-  ];
-  modal.click((e) => {
-    let notInDontClick = dontClick.indexOf(e.target) === -1;
-    if (notInDontClick) {
-      CloseModal();
-    }
-  });
-
-  function ShowModal() {
-    modal.css("display", "block");
-  }
-  function CloseModal() {
-    modal.css("display", "none");
-  }
-  function ShowNext() {
-    if (nextImg !== undefined) {
-      nextImg.click();
-    }
-  }
-  function ShowPrevious() {
-    if (previousImg !== undefined) {
-      previousImg.click();
-    }
-  }
-
-  $(document).keydown(function (e) {
-    if (e.key === "Escape") { // escape key maps to keycode `27`
-      CloseModal();
-    }
-    else if (e.key === "ArrowLeft") {
-      console.log("left, previous");
-
-      ShowPrevious();
-    }
-    else if (e.key === "ArrowRight") {
-      console.log("right, next");
-
-      ShowNext();
-    }
-  });
-
-
   const ZOOM_IN = "zoom-in-image";
   const ZOOM_OUT = "zoom-out-image";
-  class ModalImage {
+  /** sketchfab iframe html */
+  function sketchEmbed(id: string) {
+    return `
+      <iframe id="sketchfab-iframe"
+      src="https://sketchfab.com/models/${id}/embed" frameborder="0"
+      allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    `;
+  }
+
+  function setup() {
+    // get array of elements with class 
+    const imgList = $(".img-thumbnail");
+
+    // Get the modal
+    let modal = new Modal(imgList);
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    imgList.each(function (index, element: HTMLElement) {
+      var jElement = $(element);
+      jElement.click(() => modal.SetNewElement(index));
+    });
+
+    createKeyBinding(modal);
+  }
+  function createKeyBinding(modal: Modal) {
+    $(document).keydown(function (e) {
+      if (e.key === "Escape") { // escape key maps to keycode `27`
+        modal.Hide();
+      }
+      else if (e.key === "ArrowLeft") {
+        modal.ShowPrevious();
+      }
+      else if (e.key === "ArrowRight") {
+        modal.ShowNext();
+      }
+    });
+  }
+
+  class Modal {
+    outer: JQuery<HTMLElement>;
+    captionText: JQuery<HTMLElement>;
+
+    modalContent: JQuery<HTMLElement>;
+    modalImg: JQuery<HTMLElement>;
+    sketchWrapper: JQuery<HTMLElement>;
+
+    nextButton: JQuery<HTMLElement>;
+    previousButton: JQuery<HTMLElement>;
+    closeButton: JQuery<HTMLElement>;
+
+    imgList: JQuery<HTMLElement>;
+
+    private hidden: boolean;
+    private currentIndex: number;
+    private imageZoom: ImageZoom;
+
+    constructor(imgList: JQuery<HTMLElement>) {
+      this.imgList = imgList;
+
+      this.outer = $('#galleryModal');
+      this.captionText = this.outer.find("#caption");
+      this.modalContent = this.outer.find(".modal-content");
+      this.modalImg = this.outer.find("#modal-image");
+      this.sketchWrapper = this.outer.find('#sketch-wrapper');
+
+      this.nextButton = $(".nextImg").first();
+      this.nextButton = this.outer.find(".nextImg");
+      this.previousButton = this.outer.find(".previousImg");
+      this.closeButton = this.outer.find(".close");
+
+      this.nextButton.click(() => { this.ShowNext(); });
+      this.previousButton.click(() => { this.ShowPrevious(); });
+      this.closeButton.click(() => { this.Hide(); });
+      this.setupOuterClick();
+
+      this.imageZoom = new ImageZoom(this.modalImg);
+
+      this.Hide();
+    }
+    private setupOuterClick() {
+      // hides modal if clicking outside of image and buttons
+      const notOuterElement = [
+        this.modalImg.get(0),
+        this.nextButton.get(0),
+        this.previousButton.get(0),
+        this.closeButton.get(0)
+      ];
+      this.outer.click((e) => {
+        let notOuter = notOuterElement.indexOf(e.target) === -1;
+        if (notOuter) {
+          this.Hide();
+        }
+      });
+
+    }
+
+    Show() {
+      this.outer.css("display", "block");
+      this.hidden = false;
+    }
+    Hide() {
+      this.outer.css("display", "none");
+      this.hidden = true;
+    }
+
+    SetNewElement(index: number) {
+      var jElement = this.imgList.eq(index);
+      this.currentIndex = index;
+
+      let isSketchFab = jElement.hasClass(SKETCHFAB_MODEL);
+      this.toggleImageDisplay(!isSketchFab);
+
+      if (isSketchFab) {
+        this.setSketchFabViewer(jElement);
+      }
+      else {
+        this.setNewImage(jElement);
+      }
+
+      this.Show();
+    }
+
+    /** Toggles Between Image and sketchfab embed */
+    private toggleImageDisplay(displayImage: boolean) {
+      const NONE = "none";
+      const BLOCK = "block";
+      const DISPLAY = "display";
+
+      this.sketchWrapper.css(DISPLAY, displayImage ? NONE : BLOCK);
+      this.modalImg.css(DISPLAY, displayImage ? BLOCK : NONE);
+    }
+
+    private setNewImage(jElement: JQuery<HTMLElement>) {
+      const SOURCE = "src";
+      const ALT = "alt";
+      const INNER = "innerHTML";
+
+      var src = jElement.attr(SOURCE);
+      var alt = jElement.attr(ALT);
+
+      this.modalImg.attr(SOURCE, src);
+      this.captionText.attr(INNER, alt);
+
+      // image zoom
+      this.imageZoom.RefreshImage();
+    }
+
+    private setSketchFabViewer(jElement: JQuery<HTMLElement>) {
+      var id = jElement.attr(SKETCHFAB_ID);
+      var html = sketchEmbed(id);
+      this.sketchWrapper.html(html);
+    }
+
+    ShowNext() {
+      let nextIndex = this.getNextIndex();
+
+      this.SetNewElement(nextIndex);
+    }
+    ShowPrevious() {
+      let previousIndex = this.getPreviousIndex();
+
+      this.SetNewElement(previousIndex);
+    }
+
+    private getNextIndex() {
+      var next = this.currentIndex + 1;
+      return next < this.imgList.length ? next : 0;
+    }
+    private getPreviousIndex() {
+      var prev = this.currentIndex - 1;
+      return prev > 0 ? prev : this.imgList.length - 1;
+    }
+  }
+  class ImageZoom {
     img: JQuery<HTMLElement>;
-    height: number;
+    canZoom: boolean;
     naturalHeight: number;
     naturalWidth: number;
 
+    isZoomed: boolean;
+
     constructor(imageElement: JQuery<HTMLElement>) {
-      var { naturalWidth, naturalHeight, width, height } = (imageElement.get(0) as HTMLImageElement);
       this.img = imageElement;
-      this.height = height;
+      this.img.click(() => this.imgClicked());
+      this.RefreshImage();
+    }
+
+    RefreshImage() {
+      var { naturalWidth, naturalHeight, height } = (this.img.get(0) as HTMLImageElement);
       this.naturalHeight = naturalHeight;
       this.naturalWidth = naturalWidth;
+      this.isZoomed = false;
 
-      if (naturalHeight > height) {
-        // can zoom
-        this.setZoomedOutState();
+      this.canZoom = this.naturalHeight > height;
+      if (this.canZoom) {
+        this.UnZoom();
       }
       else {
         this.img.removeClass([ZOOM_IN, ZOOM_OUT]);
-
         this.removeSize();
-
-        modalImg.off("click");
       }
     }
-    setZoomedOutState() {
-      this.img.removeClass(ZOOM_OUT);
-      this.img.addClass(ZOOM_IN);
-
-      this.removeSize();
-
-      // needs to be called like this so that `this` context isnt lost
-      this.img.click(() => { this.setZoomedInState() });
+    private imgClicked() {
+      if (this.canZoom) {
+        if (this.isZoomed) {
+          this.UnZoom();
+        }
+        else {
+          this.Zoom();
+        }
+      }
     }
-    setZoomedInState() {
+    Zoom() {
+      this.isZoomed = true;
+
       this.img.removeClass(ZOOM_IN);
       this.img.addClass(ZOOM_OUT);
 
       this.addSize();
-
-      this.img.click(() => { this.setZoomedOutState() });
     }
+    UnZoom() {
+      this.isZoomed = false;
+
+      this.img.removeClass(ZOOM_OUT);
+      this.img.addClass(ZOOM_IN);
+
+      this.removeSize();
+    }
+
     private addSize() {
       this.img.css("width", `${this.naturalWidth}px`);
       this.img.css("height", `${this.naturalHeight}px`);
@@ -193,5 +249,6 @@
       this.img.css("max-height", "");
     }
   }
-})();
 
+  setup();
+})();
