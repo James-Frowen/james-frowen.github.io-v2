@@ -12,4 +12,8 @@ group :jekyll_plugins do
   gem 'jekyll-seo-tag'
   gem 'jekyll-feed'
   gem 'jekyll-paginate'
+  #github security alerts
+  gem "rubyzip", ">= 1.3.0"
+  gem "nokogiri", ">= 1.10.4"
 end
+
