@@ -20,7 +20,7 @@ The Alacrity Foundation is an educational charity. Alacrity offers a year long p
 </p>
 
 <p>
-While I was at Alacrity I was part of a 5 man team. The team was tasked with prototyping various ideas with the hopes of finding a viable business. The main project involved creating conversational interfaces for data input. My main focus was back-end development, server deployment and managing other AWS services. This project was written with Typescript and  NodeJs. 
+I worked as part of a 5 man team that that prototyped various ideas to find a viable business. The largest project involved creating conversational interfaces for data input.   My main focus was back-end development, server deployment and managing other AWS services.  
 </p>
 
 <p>
@@ -44,7 +44,7 @@ Physics Degree at University of Bath, September 2012 - June 2015
   </p>
 
   <p>   
-  For my final year project I had to create a program to process image of the sun to detect sungrazing comets. I used python for this project. To detect the comets I had to locate groups of pixels that had the correct movement patterns. One challenge was filtering out false positives created by random noise in the images. 
+  For my final year project I had to create a program to process image of the sun to detect sungrazing comets. The program had to locate groups of pixels that had the correct movement patterns of a comet.  The most challenging part was filtering false positives created by random noise.
   </p>
 </details>
 
