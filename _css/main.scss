@@ -149,7 +149,7 @@ $shadow-image-size2: (0 3px 6px);
     }
 }
 
-.share-partent {}
+.share-parent {}
 
 .share-container {}
 
@@ -208,4 +208,28 @@ summary {
 
 .under-line {
     text-decoration: underline;
+}
+
+.link-with-img {
+    &>a>img {
+        vertical-align: middle;
+    }
+}
+
+.post-inner {
+    background-color: rgba($color: #000, $alpha: 0.2);
+    padding: 10px 20px;
+    margin: 20px 0px;
+    border-radius: 10px;
+}
+
+@media (min-width: 620px) {
+    .link-break-sm {
+        display: none;
+    }
+}
+@media (max-width: 620px) {
+    .margin-bottom-sm {
+        margin-bottom: 10px;
+    }
 }

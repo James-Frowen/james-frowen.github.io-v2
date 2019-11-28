@@ -2,13 +2,73 @@
 layout: default
 ---
 
+
+
 {% assign col-class = "col-xm-12 col-sm-12 col-lg-6" %}
+{% assign links = site.data.links %}
+
 
 <div class="container">
   <div class="row">
+    {% include LinkDiv.html 
+      img_src ='assets/icons/Twitter_Social_Icon_Rounded_Square_White.png'
+      href = links.twitter
+      link_display = links.display.twitter
+    %}
+
+    {% include LinkDiv.html 
+      img_src ='assets/icons/GitHub-Mark-Light-120px-plus.png'
+      href = links.github
+      link_display = links.display.github
+    %}
+
+    {% include LinkDiv.html 
+      img_src ='assets/icons/itchio-logo-white.png'
+      href = links.itchio
+      link_display = links.display.itchio
+      height = '24'
+      max_width = '200'
+    %}
+
+    {% include LinkDiv.html 
+      img_src ='assets/icons/logo-sketchfab-white.png'
+      href = links.sketchfab
+      link_display = links.display.sketchfab
+      height = '24'
+      max_width = '200'
+    %}
+
+    {% include LinkDiv.html 
+      img_src ='assets/icons/linkedin.png'
+      href = links.linkedin
+      link_display = links.display.linkedin
+    %}
+
+    {% include LinkDiv.html 
+      img_src ='assets/icons/mail-icon.png'
+      href = links.email
+      link_display = links.display.email
+    %}
+
+    {% include LinkDiv.html 
+      img_src ='assets/icons/discord.png'
+      href = links.discord
+      link_display = links.display.discord
+      height = '24'
+      max_width = '200'
+    %}
+  </div>
+</div>
+
+{% comment %}
+<div class="container">
+  <div class="row">
     <div class="{{ col-class }}">
-      <h2>Twitter</h2>
-      <a href="{{ site.data.links.twitter }}">{{ site.data.links.display.twitter }}</a>
+      <div class="link-with-img">
+        <img src="{{ 'assets/icons/Twitter_Social_Icon_Rounded_Square_White.png' | relative_url }}" width="48"
+          height="48">
+        <a href="{{ site.data.links.twitter }}">{{ site.data.links.display.twitter }}</a>
+      </div>
     </div>
 
     <div class="{{ col-class }}">
@@ -37,3 +97,4 @@ layout: default
     </div>
   </div>
 </div>
+{% endcomment %}

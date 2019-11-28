@@ -1,0 +1,48 @@
+{% comment %}
+img_src
+width (default null)
+height (default null)
+max_width (default 36)
+max_height (default 36)
+href
+link_display
+{% endcomment %}
+
+{% if include.max_width %}
+{% assign max_width = include.max_width %}
+{% else %}
+{% assign max_width = 36 %}
+{% endif %}
+
+{% if include.max_height %}
+{% assign max_height = include.max_height %}
+{% else %}
+{% assign max_height = 36 %}
+{% endif %}
+
+
+{% if include.href %}
+{% assign href = include.href %}
+{% else %}
+{% assign href = "#" %}
+{% endif %}
+
+<div class="{{ col-class }}" style="margin-bottom: 40px">
+  <div class="link-with-img">
+    <a href="{{ href }}">
+      <img class="margin-bottom-sm" src="{{ include.img_src | relative_url }}" style="
+        {% if include.width %}
+            width: {{ include.width }}px;
+        {% endif %}
+        {% if include.height %}
+            height: {{ include.height }}px;
+        {% endif %}
+        max-width: {{ max_width }}px;
+        max-height: {{ max_height }}px;
+      ">
+      <span style="padding-left:10px"></span>
+      <br class="link-break-sm">
+      {{ include.link_display }}
+    </a>
+  </div>
+</div>
