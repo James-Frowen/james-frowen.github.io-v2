@@ -9,7 +9,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-typescript": "^5.0.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "request": "^2.88.0",
     "typescript": "^3.3.3333",
     "set-value": ">=2.0.1",
